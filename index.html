@@ -2,15 +2,29 @@
 <html>
     <head>
         
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-       <title>Project 2</title>
+	<script type="text/javascript" src="https://d3js.org/d3-random.v1.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="http://d3js.org/topojson.v2.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>       <title>Project 2</title>
         <meta charset="utf-8">
-        
+  <style>
+body { font-family: 'Alegreya Sans', Calibri, sans-serif; }
+p {font-family: 'Alegreya Sans', Calibri, sans-serif; 
+font-size:30;
+font-weight:Bold;}
+</style>      
     </head>
 
-    <body>
+    <body background = "img.jpg">
         <script>
-            
+
+
+
+			var projection =  d3.geoAlbersUsa().scale([1000]);
+
+			var path = d3.geoPath().projection(projection);	
+			var states, restmap, us, freq;
+			
             var height = 700;
             var width = 700;
             var margin = {top: 20, right: 20, bottom: 110, left: 50};
@@ -18,7 +32,11 @@
             var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom);
-            
+
+            var usmap = d3.select("body").append("svg")
+				.attr("width", 1100)
+				.attr("height", 700);
+			
             var P = [];
             var C = [];
             var I = [];
@@ -43,9 +61,56 @@
                 .defer(d3.csv, "price1.csv")
                 .defer(d3.csv, "calories.csv")
                 .defer(d3.csv, "FastFood.csv")
-                .await(function (err, price, calories, income) {
-                
-                //processing information about price   
+				.defer(d3.json, "us.json")
+				.defer(d3.csv, "OB_AND_FF_FREQ.csv")
+                .await(function (err, price, calories, income, d1, d2) {
+				
+				if(err) { console.log(err); }
+
+				freq = d2;
+				us = d1;						
+				freq.forEach(function(d) {
+					d["Fast-food restaurants per 10,000 residents"] = +Number(d["Fast-food restaurants per 10,000 residents"]);
+					d["% of residents who are obese"] = +Number(d["% of residents who are obese"]);
+					d["Food Insercurity % (2010-12)"] = +Number(d["Food Insercurity % (2010-12)"]);
+					d["McDonald's"] = +Number(d["McDonald's"]);
+					d["Burger King"] = +Number(d["Burger King"]);
+					d["Wendy's"] = +Number(d["Wendy's"]);
+					d["Carl's"] = +Number(d["Carl's"]);
+					d["Chick-fil-A"] = +Number(d["Chick-fil-A"]);
+					d["Chipotle"] = +Number(d["Chipotle"]);
+					d["Dairy Queen"] = +Number(d["Dairy Queen"]);
+					d["FIPS"] = +Number(d["FIPS"]);			
+					d["Hardee's"] = +Number(d["Hardee's"]);
+					d["In-N-Out"] = +Number(d["In-N-Out"]);
+					d["Jack in the Box"] = +Number(d["Jack in the Box"]);
+					d["Papa John's"] = +Number(d["Papa John's"]);
+					d["Sonic"] = +Number(d["Sonic"]);
+					d["Subway"] = +Number(d["Subway"]);
+					d["Whataburger"] = +Number(d["Whataburger"]);
+					d["White Castle"] = +Number(d["White Castle"]);
+				});             
+
+				var rest_Extent = d3.extent(freq, function(d) {
+					return d["Fast-food restaurants per 10,000 residents"];
+				});	
+				var ob_Extent = d3.extent(freq, function(d) {
+					return d["% of residents who are obese"];
+				});		
+		
+				var insec_Extent = d3.extent(freq, function(d) {
+					return d["Food Insercurity % (2010-12)"];
+				});	
+
+				var color_r = d3.scaleQuantize()
+					.domain(rest_Extent)
+					.range(["c2c2ff", "#3333ff", "#oaoaff", "#0000e0", "#0000a3", "#000066", "#4d4dff", "#1a1aff", "#00003d", "#000014"]);
+				
+				states = topojson.feature(us, us.objects.states);
+		
+				restmap = d3.map(freq, function (d) { return d["FIPS"];} );					
+			   
+			   //processing information about price   
                     priceData = d3.nest()
                         .key(function(d) { return d.FastFood;})
                         .rollup(function(price) {
@@ -124,6 +189,7 @@
                         }
                     }
                 }
+
           
             
                 for (var x = 0; x < merged.length; x++){
@@ -137,9 +203,46 @@
                         }
                     }
                 }
+				
+				
+
                 
-                scatterPlot(merged);
-            });
+				
+				
+				
+				
+			var mapp = usmap.selectAll('path').data(states.features).enter().append("path")
+				.attr("d", path).attr("stroke", "blue").style("fill", function (state) {
+				if (restmap.get(state.id)){
+					var s = restmap.get(state.id);
+					return color_r(restmap.get(state.id)["Fast-food restaurants per 10,000 residents"]);  } 
+				});	
+//delete
+			console.log(us);
+
+        scatterPlot(merged, us, mapp);
+
+		/*var ind = 0;
+		var str = 0;
+		var names = d3.keys(freq[0]);
+		
+		for ( var i = 5; i<names.length-1; i++){		
+			var n = names[i];
+			
+			usmap.append("text")
+				.text(n)
+                 .attr("x", 15 + str)
+                 .attr("y", 570)
+				 .style("font-size", "10pt")
+                 .style("stroke", "black")
+		         .style("cursor", "pointer")
+		 
+				 .on("click", function (){click(d3.select(this).text(), mapp)});
+			 
+			str += names[i].length*7 + 5;	 
+		}	*/
+	});	
+//delete	
             
             
 
@@ -153,6 +256,7 @@
                 .domain([0, 9])
                 .range([0, 700]);
             
+           
             var priceAxis = d3.axisBottom(x);
             
             // x-axis
@@ -166,51 +270,91 @@
                   .attr("class", "Yaxis")
                   .attr("transform", "translate("+margin.left+", 0)")
                   .call(caloriesAxis);
-            
-//            svg.append("text")
                         
-            var averageCaloriesGirl = svg.append("line")
-                    .attr("x1", margin.left)                       
-                    .attr("y1", y(666.6))
-                    .attr("x2", 750)
-                    .attr("y2", y(666.6))
-                    .attr("stroke-width", 1.5)
-                    .attr("stroke", "pink");
+           var mealGirls = svg.append("rect")
+                    .attr("x", margin.left)
+                    .attr("y", y(666.6))
+                    .attr("width", 700)
+                    .attr("height", 472)
+                    .style("fill", fill="pink")
+                    .style("opacity", opacity="0.6");
+            
+            var mealBoys = svg.append("rect")
+                    .attr("x", margin.left)
+                    .attr("y", y(833))
+                    .attr("width", 700)
+                    .attr("height", 590)
+                    .style("fill", fill="blue")
+                    .style("opacity", opacity="0.2");
 
-           
-            var averageCaloriesGirl = svg.append("line")
-                    .attr("x1", margin.left)                       
-                    .attr("y1", y(833))
-                    .attr("x2", 750)
-                    .attr("y2", y(833))
-                    .attr("stroke-width", 1.5)
-                    .attr("stroke", "blue");
-            
-            function scatterPlot(merged){
-            
-//            var points = svg.selectAll(".dot")
-//                .data(merged)
-//                .enter().append("circle")
-//                .attr("class", "dot")
-//                .attr("r", function(d){ return (d.income / 35447)*100})
-//                .attr("cx", function(d){ return x(d.avgPrice) })
-//                .attr("cy", function(d){ return y(d.calories) })
-//                .style("fill","url(function(d){d.logo})")
-//                .style("opacity", opacity = "0.8")
-                
-             
-            
-            var images = svg.append("g").selectAll('points')
+
+		
+        function scatterPlot(merged, us, mapp){
+
+			
+            /*var points = svg.selectAll(".dot")
                 .data(merged)
-                .enter().append('image')
-                .attr("xlink:href", function(d){ return d.logo })
-                .attr("x", function(d){ return x(d.avgPrice) })
-                .attr("y", function(d){ return y(d.calories) })
-                .attr("width", 80)
-                .attr("height", 80);
-            }
+				.enter()
+				.append("circle")
+                .attr("class", "dot")
+                .attr("r", function(d){ return (d.income / 35447)*100})
+                .attr("cx", function(d){ return x(d.avgPrice) })
+                .attr("cy", function(d){ return y(d.calories) })
+                .style("fill", fill = "darkblue")
+                .style("opacity", opacity = "0.8")
+				.on("click", function (){click(d3.select(this).text())});*/
+
+			
+            var images = svg.append("g").selectAll('points')
+                    .data(merged)
+                    .enter().append('image')
+                    .attr("xlink:href", function(d){ return d.logo })
+                    .attr("x", function(d){ return x(d.avgPrice) })
+                    .attr("y", function(d){ return y(d.calories) })
+                    .attr("width", 80)
+                    .attr("height", 80)
+					.on("click", function (d){
+					var states = topojson.feature(us, us.objects.states);
+					click(d.fastfood, states, mapp);});
+                
             
-             scatterPlot();    
+        }
+
+	function click(n, states, mapp) {
+
+		var stat = "";
+    
+				
+
+		
+		
+        var restmap = d3.map(freq, function (d) { return d["FIPS"];} );
+		
+		var ext = d3.extent(freq, function(d) {
+			return d[n];
+		});
+		var color_r = d3.scaleQuantize()
+			.domain(ext)
+			.range(["#7070ff", "#3333ff", "#0a0aff", "#0000e0", "#0000a3", "#000066", "#4d4dff", "#1a1aff", "#00003d", "#000014"]);
+		
+	
+		mapp.style("fill", function (state) {
+				console.log(color_r);	
+				
+			stat = state;
+			if (restmap.get(state.id)){
+				console.log(restmap.get(state.id));
+			
+				return color_r(restmap.get(state.id)[n]);  
+		  } else{
+			console.log("hi");
+			}
+        }); 		
+
+	};			
+	
+                       
+                
        
             
         </script>
