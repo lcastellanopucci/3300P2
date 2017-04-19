@@ -169,21 +169,22 @@
             
 //            svg.append("text")
                         
-            var mealGirls = svg.append("line")
-                    .attr("x1", margin.left)
-                    .attr("x2", x(9))
-                    .attr("y1", margin.left)
-                    .attr("y2", 472)
-                    .style("fill", fill="pink")
-                    .style("opacity", opacity="0.6");
+            var averageCaloriesGirl = svg.append("line")
+                    .attr("x1", margin.left)                       
+                    .attr("y1", y(666.6))
+                    .attr("x2", 750)
+                    .attr("y2", y(666.6))
+                    .attr("stroke-width", 1.5)
+                    .attr("stroke", "pink");
+
            
-            var mealBoys = svg.append("rect")
-                    .attr("x", margin.left)
-                    .attr("y", y(833))
-                    .attr("width", 700)
-                    .attr("height", 590)
-                    .style("fill", fill="blue")
-                    .style("opacity", opacity="0.2");
+        var averageCaloriesGirl = svg.append("line")
+                    .attr("x1", margin.left)                       
+                    .attr("y1", y(833))
+                    .attr("x2", 750)
+                    .attr("y2", y(833))
+                    .attr("stroke-width", 1.5)
+                    .attr("stroke", "blue");
             
             function scatterPlot(merged){
             
