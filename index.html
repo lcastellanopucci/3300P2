@@ -5,22 +5,36 @@
 	<script type="text/javascript" src="https://d3js.org/d3-random.v1.min.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<script src="http://d3js.org/topojson.v2.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>       <title>Project 2</title>
-        <meta charset="utf-8">
-  <style>
-body { font-family: 'Alegreya Sans', Calibri, sans-serif; }
-p {font-family: 'Alegreya Sans', Calibri, sans-serif; 
-font-size:30;
-font-weight:Bold;}
-</style>      
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>       
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Quicksand" rel="stylesheet">
+    <title>Project 2</title>
+    <meta charset="utf-8">
+    <style>
+            body { 
+                font-family: 'Quicksand', sans-serif;
+            }
+            
+            h1{
+                text-align: center;
+                font-family: 'Quicksand', sans-serif;
+                font-size: 40;
+            }
+            p {
+                font-family: 'Quicksand', sans-serif;
+                font-size:30;
+                font-weight:Bold;
+            }
+    </style>      
     </head>
+    <body>
+        
+        <h1> FastFood Density Versus Obesity</h1>
 
-    <body background = "img.jpg">
         <script>
 
-
-
-			var projection =  d3.geoAlbersUsa().scale([1000]);
+			var projection =  d3.geoAlbersUsa()
+                .scale([600])
+                .translate([550 / 2, 700 / 2]);
 
 			var path = d3.geoPath().projection(projection);	
 			var states, restmap, us, freq;
@@ -34,7 +48,7 @@ font-weight:Bold;}
                 .attr("height", height + margin.top + margin.bottom);
 
             var usmap = d3.select("body").append("svg")
-				.attr("width", 1100)
+				.attr("width", 600)
 				.attr("height", 700);
 			
             var P = [];
@@ -104,11 +118,44 @@ font-weight:Bold;}
 
 				var color_r = d3.scaleQuantize()
 					.domain(rest_Extent)
-					.range(["c2c2ff", "#3333ff", "#oaoaff", "#0000e0", "#0000a3", "#000066", "#4d4dff", "#1a1aff", "#00003d", "#000014"]);
+					.range(["#ffffff", "#ffdacc", "##ffb699", "#ffa07a", "#ff7f4d", "#ff5b1a", "#e64100", "#b33300", "#802400", "#4d1600"]);
 				
 				states = topojson.feature(us, us.objects.states);
 		
-				restmap = d3.map(freq, function (d) { return d["FIPS"];} );					
+				restmap = d3.map(freq, function (d) { return d["FIPS"];} );	
+
+                //Append a defs (for definition) element to your SVG
+                var defs = usmap.append("defs");
+                
+                //Append a linearGradient element to the defs and give it a unique id
+                var linearGradient = defs.append("linearGradient")
+                    .attr("id", "linear-gradient")
+                    .attr("x1", "0%")
+                    .attr("y1", "0%")
+                    .attr("x2", "100%")
+                    .attr("y2", "0%");
+                
+                linearGradient.append("stop") 
+                    .attr("offset", "0%")   
+                    .attr("stop-color", "#ffffff"); 
+                
+                linearGradient.append("stop") 
+                    .attr("offset", "50%")   
+                    .attr("stop-color", "#ff7f4d"); 
+                
+                linearGradient.append("stop") 
+                    .attr("offset", "100%")   
+                    .attr("stop-color", "#4d1600");
+                
+                usmap.append("rect")
+                    .attr("x", 150)
+                    .attr("y", 550)
+                    .attr("width", 300)
+                    .attr("height", 20)
+//                    .attr("stroke-width", 1)
+//                    .attr("stroke", "black")
+                    .style("fill", "url(#linear-gradient)");
+
 			   
 			   //processing information about price   
                     priceData = d3.nest()
@@ -205,49 +252,25 @@ font-weight:Bold;}
                 }
 	
 			var mapp = usmap.selectAll('path').data(states.features).enter().append("path")
-				.attr("d", path).attr("stroke", "blue").style("fill", function (state) {
+				.attr("d", path).attr("stroke", "black").style("fill", function (state) {
 				if (restmap.get(state.id)){
 					var s = restmap.get(state.id);
 					return color_r(restmap.get(state.id)["Fast-food restaurants per 10,000 residents"]);  } 
-				});	
-//delete
-			console.log(us);
-
-        scatterPlot(merged, us, mapp);
-
-		/*var ind = 0;
-		var str = 0;
-		var names = d3.keys(freq[0]);
-		
-		for ( var i = 5; i<names.length-1; i++){		
-			var n = names[i];
-			
-			usmap.append("text")
-				.text(n)
-                 .attr("x", 15 + str)
-                 .attr("y", 570)
-				 .style("font-size", "10pt")
-                 .style("stroke", "black")
-		         .style("cursor", "pointer")
-		 
-				 .on("click", function (){click(d3.select(this).text(), mapp)});
-			 
-			str += names[i].length*7 + 5;	 
-		}	*/
-	});	
-//delete	
-            
-            
+				});
+                
+  
+                scatterPlot(merged, us, mapp);
+            });
 
             var y = d3.scaleLinear()
                 .domain([0, 850])
-                .range([550, 0]);
+                .range([500, 0]);
             
             var caloriesAxis = d3.axisLeft(y);
             
             var x = d3.scaleLinear()
                 .domain([0, 9])
-                .range([0, 550]);
+                .range([0, 500]);
             
            
             var priceAxis = d3.axisBottom(x);
@@ -255,73 +278,87 @@ font-weight:Bold;}
             // x-axis
               svg.append("g")
                   .attr("class", "Xaxis")
-                  .attr("transform", "translate("+margin.left+", 550 )")
+                  .attr("transform", "translate("+margin.left+", 500 )")
                   .call(priceAxis);
+            
+            svg.append("text")             
+                .attr("transform","translate(" + ((width + 50)/2) + " ," + (height + margin.top + 20) + ")")
+                .style("font-family", "Quicksand")
+                .style("text-anchor", "middle")
+                .text("Price ($)");
 
             // y-axis
               svg.append("g")
                   .attr("class", "Yaxis")
                   .attr("transform", "translate("+margin.left+", 0)")
                   .call(caloriesAxis);
+                
+            svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", margin.left-50)
+                .attr("x",0 - (height / 2))
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .style("font-family", "Quicksand")
+                .text("Calories");    
+                
                         
         function scatterPlot(merged, us, mapp){
 
-            var averageCaloriesGirl = svg.append("line")
-                    .attr("x1", margin.left)                       
-                    .attr("y1", y(666.6))
-                    .attr("x2", 750)
-                    .attr("y2", y(666.6))
-                    .attr("stroke-width", 1.5)
-                    .attr("stroke", "pink");
-
-           
-            var averageCaloriesGirl = svg.append("line")
-                    .attr("x1", margin.left)                       
-                    .attr("y1", y(833))
-                    .attr("x2", 750)
-                    .attr("y2", y(833))
-                    .attr("stroke-width", 1.5)
-                    .attr("stroke", "blue");
-            
-//            var points = svg.selectAll(".dot")
+//            var averageCaloriesGirl = svg.append("line")
+//                    .attr("x1", margin.left)                       
+//                    .attr("y1", y(666.6))
+//                    .attr("x2", 750)
+//                    .attr("y2", y(666.6))
+//                    .attr("stroke-width", 1.5)
+//                    .attr("stroke", "pink");
+//
+//           
+//            var averageCaloriesGirl = svg.append("line")
+//                    .attr("x1", margin.left)                       
+//                    .attr("y1", y(833))
+//                    .attr("x2", 750)
+//                    .attr("y2", y(833))
+//                    .attr("stroke-width", 1.5)
+//                    .attr("stroke", "blue");
+                
+//            var images = svg.append("g").selectAll('points')
 //                .data(merged)
-//                .enter().append("circle")
+//				.enter()
+//				.append("circle")
 //                .attr("class", "dot")
 //                .attr("r", function(d){ return (d.income / 35447)*100})
 //                .attr("cx", function(d){ return x(d.avgPrice) })
 //                .attr("cy", function(d){ return y(d.calories) })
-//                .style("fill","none")
-//                .style("opacity", opacity = "0.8")
+//                .style("fill", "url(d.logo)")
 //                .attr("stroke-width", 1.5)
-//                .attr("stroke", "blue");
-                
-            var images = svg.append("g").selectAll('points')
-                .data(merged)
-				.enter()
-				.append("circle")
-                .attr("class", "dot")
-                .attr("r", function(d){ return (d.income / 35447)*100})
-                .attr("cx", function(d){ return x(d.avgPrice) })
-                .attr("cy", function(d){ return y(d.calories) })
-                .style("fill", fill = "darkblue")
-                .style("opacity", opacity = "0.8")
-				.on("click", function (){click(d3.select(this).text())});
+//                .attr("stroke", "pink")
+//                .style("opacity", opacity = "0.8")
+//				.on("click", function (){click(d3.select(this).text())});
+            
+//            images.append("image")
+//                .attr("xlink:href", merged.logo)
+//                .attr("x", -8)
+//                .attr("y", -8)
+//                .attr("width", 16)
+//                .attr("height", 16);
 
 			
             var images = svg.append("g").selectAll('points')
-                    .data(merged)
-                    .enter().append('image')
-                    .attr("xlink:href", function(d){ return d.logo })
-                    .attr("x", function(d){ return x(d.avgPrice) })
-                    .attr("y", function(d){ return y(d.calories) })
-                    .attr("width", 80)
-                    .attr("height", 80)
-					.on("click", function (d){
-					var states = topojson.feature(us, us.objects.states);
-					click(d.fastfood, states, mapp);});
-                
+                .data(merged)
+                .enter()
+                .append('image')
+                .attr("xlink:href", function(d){ return d.logo })
+                .attr("x", function(d){ return x(d.avgPrice) })
+                .attr("y", function(d){ return y(d.calories) })
+                .attr("width", 60)
+                .attr("height", 60)
+				.on("click", function (d){
+				      var states = topojson.feature(us, us.objects.states);
+				      click(d.fastfood, states, mapp);});
             
         }
+    
 
 	
             function click(n, states, mapp) {
@@ -329,14 +366,14 @@ font-weight:Bold;}
                 var stat = "";
                 
                 var restmap = d3.map(freq, function (d) { return d["FIPS"];} );
-		
-		          var ext = d3.extent(freq, function(d) {
+                
+                var ext = d3.extent(freq, function(d) {
 			         return d[n];
 		          });
 		
                 var color_r = d3.scaleQuantize()
                     .domain(ext)
-                    .range(["#7070ff", "#3333ff", "#0a0aff", "#0000e0", "#0000a3", "#000066", "#4d4dff", "#1a1aff", "#00003d", "#000014"]);
+                    .range(["#ffffff", "#ffdacc", "##ffb699", "#ffa07a", "#ff7f4d", "#ff5b1a", "#e64100", "#b33300", "#802400", "#4d1600"]);
                 
                 mapp.style("fill", function (state) {
 				console.log(color_r);	
@@ -350,17 +387,11 @@ font-weight:Bold;}
                         return color_r(restmap.get(state.id)[n]);  
 		  
                     } 
-                    else{
-                        
-			             
-			         }
+                    
                 }); 		
 
 	       };			
 	
-                       
-                
-       
             
         </script>
     </body>
