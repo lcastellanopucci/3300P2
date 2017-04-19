@@ -25,8 +25,8 @@ font-weight:Bold;}
 			var path = d3.geoPath().projection(projection);	
 			var states, restmap, us, freq;
 			
-            var height = 700;
-            var width = 700;
+            var height = 500;
+            var width = 500;
             var margin = {top: 20, right: 20, bottom: 110, left: 50};
             
             var svg = d3.select("body").append("svg")
@@ -115,9 +115,9 @@ font-weight:Bold;}
                         .key(function(d) { return d.FastFood;})
                         .rollup(function(price) {
                             return {
-                            "averagePrice" : d3.mean(price, function(d) {return(d.Price)}) // Return the average score 
+                            "averagePrice" : d3.mean(price, function(d) {return(d.Price)})
                         }
-                })
+                    })
                     .entries(price);
                 
                     for(var i = 0; i < priceData.length; i++){
@@ -203,14 +203,7 @@ font-weight:Bold;}
                         }
                     }
                 }
-				
-				
-
-                
-				
-				
-				
-				
+	
 			var mapp = usmap.selectAll('path').data(states.features).enter().append("path")
 				.attr("d", path).attr("stroke", "blue").style("fill", function (state) {
 				if (restmap.get(state.id)){
@@ -248,13 +241,13 @@ font-weight:Bold;}
 
             var y = d3.scaleLinear()
                 .domain([0, 850])
-                .range([600, 0]);
+                .range([550, 0]);
             
             var caloriesAxis = d3.axisLeft(y);
             
             var x = d3.scaleLinear()
                 .domain([0, 9])
-                .range([0, 700]);
+                .range([0, 550]);
             
            
             var priceAxis = d3.axisBottom(x);
@@ -262,7 +255,7 @@ font-weight:Bold;}
             // x-axis
               svg.append("g")
                   .attr("class", "Xaxis")
-                  .attr("transform", "translate("+margin.left+",600 )")
+                  .attr("transform", "translate("+margin.left+", 550 )")
                   .call(priceAxis);
 
             // y-axis
@@ -271,28 +264,38 @@ font-weight:Bold;}
                   .attr("transform", "translate("+margin.left+", 0)")
                   .call(caloriesAxis);
                         
-           var mealGirls = svg.append("rect")
-                    .attr("x", margin.left)
-                    .attr("y", y(666.6))
-                    .attr("width", 700)
-                    .attr("height", 472)
-                    .style("fill", fill="pink")
-                    .style("opacity", opacity="0.6");
-            
-            var mealBoys = svg.append("rect")
-                    .attr("x", margin.left)
-                    .attr("y", y(833))
-                    .attr("width", 700)
-                    .attr("height", 590)
-                    .style("fill", fill="blue")
-                    .style("opacity", opacity="0.2");
-
-
-		
         function scatterPlot(merged, us, mapp){
 
-			
-            /*var points = svg.selectAll(".dot")
+            var averageCaloriesGirl = svg.append("line")
+                    .attr("x1", margin.left)                       
+                    .attr("y1", y(666.6))
+                    .attr("x2", 750)
+                    .attr("y2", y(666.6))
+                    .attr("stroke-width", 1.5)
+                    .attr("stroke", "pink");
+
+           
+            var averageCaloriesGirl = svg.append("line")
+                    .attr("x1", margin.left)                       
+                    .attr("y1", y(833))
+                    .attr("x2", 750)
+                    .attr("y2", y(833))
+                    .attr("stroke-width", 1.5)
+                    .attr("stroke", "blue");
+            
+//            var points = svg.selectAll(".dot")
+//                .data(merged)
+//                .enter().append("circle")
+//                .attr("class", "dot")
+//                .attr("r", function(d){ return (d.income / 35447)*100})
+//                .attr("cx", function(d){ return x(d.avgPrice) })
+//                .attr("cy", function(d){ return y(d.calories) })
+//                .style("fill","none")
+//                .style("opacity", opacity = "0.8")
+//                .attr("stroke-width", 1.5)
+//                .attr("stroke", "blue");
+                
+            var images = svg.append("g").selectAll('points')
                 .data(merged)
 				.enter()
 				.append("circle")
@@ -302,7 +305,7 @@ font-weight:Bold;}
                 .attr("cy", function(d){ return y(d.calories) })
                 .style("fill", fill = "darkblue")
                 .style("opacity", opacity = "0.8")
-				.on("click", function (){click(d3.select(this).text())});*/
+				.on("click", function (){click(d3.select(this).text())});
 
 			
             var images = svg.append("g").selectAll('points')
@@ -320,39 +323,40 @@ font-weight:Bold;}
             
         }
 
-	function click(n, states, mapp) {
-
-		var stat = "";
-    
-				
-
-		
-		
-        var restmap = d3.map(freq, function (d) { return d["FIPS"];} );
-                
-		
-		var ext = d3.extent(freq, function(d) {
-			return d[n];
-		});
-		var color_r = d3.scaleQuantize()
-			.domain(ext)
-			.range(["#7070ff", "#3333ff", "#0a0aff", "#0000e0", "#0000a3", "#000066", "#4d4dff", "#1a1aff", "#00003d", "#000014"]);
-		
 	
-		mapp.style("fill", function (state) {
+            function click(n, states, mapp) {
+                
+                var stat = "";
+                
+                var restmap = d3.map(freq, function (d) { return d["FIPS"];} );
+		
+		          var ext = d3.extent(freq, function(d) {
+			         return d[n];
+		          });
+		
+                var color_r = d3.scaleQuantize()
+                    .domain(ext)
+                    .range(["#7070ff", "#3333ff", "#0a0aff", "#0000e0", "#0000a3", "#000066", "#4d4dff", "#1a1aff", "#00003d", "#000014"]);
+                
+                mapp.style("fill", function (state) {
 				console.log(color_r);	
+                    
+                    stat = state;
+                    
+                    if (restmap.get(state.id)){
 				
-			stat = state;
-			if (restmap.get(state.id)){
-				console.log(restmap.get(state.id));
-			
-				return color_r(restmap.get(state.id)[n]);  
-		  } else{
-			console.log("hi");
-			}
-        }); 		
+                        console.log(restmap.get(state.id));
+                        
+                        return color_r(restmap.get(state.id)[n]);  
+		  
+                    } 
+                    else{
+                        
+			             
+			         }
+                }); 		
 
-	};			
+	       };			
 	
                        
                 
