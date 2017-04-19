@@ -1,0 +1,490 @@
+FastFood,Food,Size,Price
+AppleBees,Salsa Verde Beef Nachos,,$9.99 
+AppleBees,Cheeseburger Egg Rolls,,$9.29 
+AppleBees,Sweet Potato Fries and dips,,$4.99 
+AppleBees,Brew Pub Pretzels & Beer Cheese Dip,,$7.29 
+AppleBees,Spinach & Artichoke Dip,,$7.99 
+AppleBees,Mozzarella Sticks,,$8.29 
+AppleBees,Grilled Chicken Wonton Tacos,,$6.99 
+AppleBees,Double Crunch Bone-In Wings,,$10.59 
+AppleBees,Double Crunch Thai Peanut Wing,,$10.29 
+AppleBees,Boneless Wings,,$10.49 
+AppleBees,Steak Quesadilla,,$8.99 
+AppleBees,Chicken Quesadilla,,$7.99 
+AppleBees,House-Made Sweet & Spicy Pickles,,$2.99 
+AppleBees,Sriracha Shrimp,,$8.29 
+AppleBees,The Classic Combo,,$14.49 
+AppleBees,Chips & Salsa,,$2.99 
+AppleBees,Southwestern Steak Salad,,$10.99 
+AppleBees,Grilled Shrimp Avocado & Grapefruit Salad,,$10.99 
+AppleBees,Grilled Chicken Avocado & Grapefruit Salad,,$9.99 
+AppleBees,Crispy Chicken & Cornbread salad,,$10.99 
+AppleBees,Grilled Chicken & Corn Bread Salad,,$9.99 
+AppleBees,8oz Top Sirloin,Served with 2 sides,$14.99 
+AppleBees,6oz Top Sirloin,Served with 2 sides,$11.99 
+AppleBees,Hand-Cut Bone-In Pork Chop,Served with 2 sides,$13.99 
+AppleBees,Cedar-Grilled Salmon,Served with 2 sides,$13.59 
+AppleBees,Grilled Chicken Breast,Served with 2 sides,$9.99 
+AppleBees,Double-Glazed Baby-Back Ribs,Served with 2 sides,$17.99 
+AppleBees,Half Rack Double-Glazed Baby-Back Ribs,Served with 2 sides,$12.99 
+AppleBees,Shrimp 'N Parmesan Sirloin,Served with 2 sides,$17.99 
+AppleBees,Bone-In Pork Chop with Honey Apple Chutney,Served with 2 sides,$14.99 
+AppleBees,Bourbon Street Steak,Served with 2 sides,$15.29 
+AppleBees,Cedar Salmon with Maple Mustard Glaze,Served with 2 sides,$14.59 
+AppleBees,Smokin' Double Steak and Egg,Served with 2 sides,$16.99 
+AppleBees,Bourbon Street Chicken & Shrimp,,$12.99 
+AppleBees,Hot Shot Whiskey Chicken,,$11.49 
+AppleBees,Fiesta Lime Chicken,,$11.99 
+AppleBees,Chicken Tenders Platter,,$10.79 
+AppleBees,Chicken Tenders Basket,,$9.29 
+AppleBees,Cedar Grilled Lemon Chicken,,$11.29 
+AppleBees,Crispy Brewhouse Chicken,,$11.49 
+AppleBees,Grilled Chicken Breast,,$9.99 
+AppleBees,Pepper Crusted Sirloin w/ Whole Grains,,$12.69 
+AppleBees,Shrimp Wonton Stir-Fry,,$11.49 
+AppleBees,Thai Shrimp Salad,,$10.69 
+AppleBees,Grilled Onion Sirloin with Stout Beer Gravy,,$12.99 
+AppleBees,Cedar Grilled Lemon Chicken,,$11.29 
+AppleBees,Hot Shot Whiskey Chicken,,$11.49 
+AppleBees,Thai Shrimp Salad,,$10.69 
+AppleBees,Oriental Chicken Salad,,$10.49 
+AppleBees,Oriental Grilled Chicken Salad,,$10.49 
+AppleBees,Grilled Chicken Caesar Salad,,$10.29 
+AppleBees,Fiesta Chicken Chopped Salad,,$10.49 
+AppleBees,4-Cheese Mac & Cheese with Honey Pepper Chicken Tenders,,$12.49 
+AppleBees,Butcher's Meat & Potatoes,,$13.99 
+AppleBees,Sirloin Stir-Fry,,$12.99 
+AppleBees,3-Cheese Chicken Cavatappi,,$11.99 
+AppleBees,Double Crunch Shrimp,,$12.89 
+AppleBees,Loaded Brisket Enchiladas,,$11.49 
+AppleBees,Shrimp Wonton Stir-Fry,,$11.49 
+AppleBees,Hand-Battered Fish & Chips,,$12.29 
+AppleBees,Cedar Grilled Salmon,,$13.59 
+AppleBees,Cedar Salmon with Maple Mustard Glaze,,$14.59 
+AppleBees,Triple Hog Dare Ya,,$10.59 
+AppleBees,Maple Bacon Chicken Piadini,,$10.49 
+AppleBees,Clubhouse Grille,,$10.49 
+AppleBees,Chicken Fajita Rollup,,$9.29 
+AppleBees,All-Day Brunch Burger,,$10.99 
+AppleBees,Beer Garden All-In Burger,,$10.79 
+AppleBees,The American Standard Burger,,$9.99 
+AppleBees,The Blazin' Texan,,$11.29 
+AppleBees,Triple Bacon Burger,,$10.99 
+AppleBees,Classic Burger,,$8.99 
+AppleBees,Quesadilla Burger,,$10.49 
+AppleBees,Cracker Jack Banana Cheesecake,,$6.99 
+AppleBees,Brownie Bites,,$1.00 
+AppleBees,Blue Ribbon Brownie,,$5.49 
+AppleBees,Triple Chocolate Meltdown,,$5.79 
+AppleBees,Hot Fudge Sundae Dessert Shooter,,$2.49 
+AppleBees,Butter Pecan Blondie,,$5.49 
+AppleBees,Side House Chips,,$1.99 
+AppleBees,Sweet Potato Fries & Dips,,$4.99 
+AppleBees,Side BBQ-Spiced Fries,,$1.99 
+AppleBees,Side Garlic Fries,,$2.99 
+AppleBees,Side French Onion Soup,,$3.69 
+AppleBees,Side Southwest Steak & Black Bean Soup,,$3.99 
+AppleBees,Side Green Goddess Wedge Salad,,$5.49 
+AppleBees,Side Tomato Basil Soup,,$3.69 
+AppleBees,Side Chicken Tortilla Soup,,$3.69 
+AppleBees,Side House Salad,,$3.69 
+AppleBees,Side Caesar Salad,,$3.69 
+AppleBees,Side Crispy Cheddar Bacon Potatoes,,$1.99 
+AppleBees,Side 4 Cheese Mac & Cheese,,$2.99 
+AppleBees,Side Fire-Grilled Veggies,,$2.99 
+AppleBees,Side Garlicky Green Beans,,$1.99 
+AppleBees,Side Maple Pecan Mashed Sweet Potatoes,,$2.99 
+AppleBees,Side Baked Potato with Butter & Sour Cream,,$1.99 
+AppleBees,Side Hearty Grains & Rice,,$1.99 
+AppleBees,Side Garlic Mashed Potatoes,,$1.99 
+AppleBees,Kid One Hamburger,,$4.99 
+AppleBees,Kid One Cheeseburger,,$4.99 
+AppleBees,Kid Two Hamburgers,,$5.99 
+AppleBees,Kid Two Cheeseburgers,,$5.99 
+AppleBees,Kid Cheesy Bread Pizza,Full,$5.99 
+AppleBees,Kid Cheesy Bread Pizza,Half,$4.99 
+AppleBees,Kid Grilled Cheese,,$4.99 
+AppleBees,Kid Chicken Tenders,,$4.99 
+AppleBees,Kid Chicken Grillers,,$4.99 
+AppleBees,Kid Corn Dog,,$4.99 
+AppleBees,Kid Fried Shrimp,,$5.99 
+AppleBees,Kid Sirloin,,$5.99 
+AppleBees,Kid Macaroni & Cheese,,$4.99 
+AppleBees,Kid Chicken Mac & Cheese,,$5.99 
+AppleBees,"Flavored Iced Teas (Mango, Pomegranate, & Kiwi)",,$2.89 
+AppleBees,"Flavored Lemonades (Mango, Raspberry, Strawberry, Regular, Kiwi, & Pomegranate)",,$2.79 
+AppleBees,Applebee's Limeades (Strawberry & Cherry),,$2.69 
+AppleBees,Fountain Drinks,,$1.99 
+AppleBees,"Decadent Shakes (Oreo Cookie, Chocolate, Strawberry)",Full Size,$3.29 
+AppleBees,"Decadent Shakes (Salted Caramel, Chocolate Nut Brownie, Oreo, Chocolate, Strawberry, & Vanilla)",Shorty,$2.99 
+AppleBees,Brewed Iced Tea,,$2.79 
+AppleBees,Sweet Tea,,$2.79 
+AppleBees,Hot Tea,,$2.39 
+AppleBees,Fresh Brewed Coffee,,$2.79 
+AppleBees,Decaf Coffee,,$2.79 
+Burger King,Whopper,,$4.19 
+Burger King,Whopper - Meal,,$6.49 
+Burger King,Double Whopper,,$5.29 
+Burger King,Double Whopper - Meal,,$7.59 
+Burger King,Bacon & Cheese Whopper,,$5.19 
+Burger King,Bacon & Cheese Whopper - Meal,,$7.49 
+Burger King,A1 Ultimate Bacon Cheeseburger,,$6.29 
+Burger King,A1 Ultimate Bacon Cheeseburger - Meal,,$8.59 
+Burger King,Whopper Jr.,,$2.19 
+Burger King,Whopper Jr. - Meal,,$5.29 
+Burger King,Big King,,$3.89 
+Burger King,Big King - Meal,,$6.39 
+Burger King,Extra Long Cheeseburger (Limited Time),,$3.99 
+Burger King,Extra Long Cheeseburger - Meal (Limited Time),,$6.29 
+Burger King,Original Chicken Sandwich,,$4.09 
+Burger King,Original Chicken Sandwich - Meal,,$6.49 
+Burger King,Tendercrisp Chicken Sandwich,,$4.99 
+Burger King,Tendercrisp Chicken Sandwich - Meal,,$7.49 
+Burger King,Tendergrill Chicken Sandwich,,$4.99 
+Burger King,Tendergrill Chicken Sandwich - Meal,,$7.49 
+Burger King,Chicken Nuggets - Meal,10 Pc.,$5.99 
+Burger King,Chicken or Buffalo Chicken Fries (Limited Time),,$2.99 
+Burger King,Chicken or Buffalo Chicken Fries - Meal (Limited Time),,$5.59 
+Burger King,Big Fish Sandwich,,$3.99 
+Burger King,Big Fish Sandwich - Meal,,$6.39 
+Burger King,Flame Grilled Chicken Burger (Limited Time),,$3.89 
+Burger King,Flame Grilled Chicken Burger - Meal (Limited Time),,$5.99 
+Burger King,A1 Smoky Bacon Tendercrisp or Tendergrill (Limited Time),,$5.99 
+Burger King,A1 Smoky Bacon Tendercrisp or Tendergrill - Meal (Limited Time),,$8.49 
+Burger King,Value Menu,,
+Burger King,Bacon Cheeseburger,,$1.49 
+Burger King,Bacon Double Cheeseburger,,$2.29 
+Burger King,Bacon Cheeseburger Deluxe,,$1.69 
+Burger King,Double Cheeseburger,,$1.69 
+Burger King,French Fries,Value,$1.39 
+Burger King,Onion Rings,Value,$1.39 
+Burger King,Fountain Drink,16 oz.,$1.29 
+Burger King,Icee,12 oz.,$1.19 
+Burger King,Hamburger,,$1.00 
+Burger King,Cheeseburger,,$1.00 
+Burger King,Crispy Chicken Jr.,,$1.00 
+Burger King,Spicy Crispy Chicken Jr.,,$1.00 
+Burger King,Rodeo Crispy Chicken,,$1.00 
+Burger King,Rodeo Burger,,$1.00 
+Burger King,Chicken Nuggets,4 Pc.,$1.19 
+Burger King,Cookies,2 Pc.,$1.00 
+Burger King,Soft Serve (Cup or Cone),,$1.00 
+Burger King,Apple Pie,,$1.49 
+Burger King,Hershey's Sundae Pie,,$1.69 
+Burger King,Sides,,
+Burger King,Chicken Nuggets,10 Pc.,$2.99 
+Burger King,Chicken Nuggets,20 Pc.,$4.99 
+Burger King,Onion Rings,Small,$1.79 
+Burger King,Onion Rings,Medium,$2.19 
+Burger King,Onion Rings,Large,$2.39 
+Burger King,French Fries,Small,$1.79 
+Burger King,French Fries,Medium,$2.19 
+Burger King,French Fries,Large,$2.39 
+Burger King,Salads & More,,
+Burger King,Garden Grilled Chicken Salad,,$5.59 
+Burger King,Bacon Cheddar Ranch Chicken Salad (Crispy or Grilled),,$6.19 
+Burger King,Side Salad (Garden),,$1.99 
+Burger King,MorningStar Veggie Burger,,$3.29 
+Burger King,MorningStar Veggie Burger - Meal,,$5.49 
+Burger King,Desserts,,
+Burger King,Sundae (Caramel or Chocolate Fudge),,$1.59 
+Burger King,Chocolate Chip Cookies,4 Pc.,$2.00 
+Burger King,Soft Serve (Cone or Cup),,$1.00 
+Burger King,Cinnamon Roll,1 Pc.,$1.59 
+Burger King,Cinnamon Rolls,2 Pc.,$2.89 
+Burger King,French Toast Sticks,3 Pc.,$1.00 
+Burger King,French Toast Sticks,5 Pc.,$1.99 
+Burger King,Dutch Apple Pie,,$1.49 
+Burger King,Hershey's Sundae Pie,,$1.79 
+Burger King,Reese Peanut Butter Cup Pie (Limited Time),,$1.79 
+Burger King,Pie Made with Snickers (Limited Time),,$1.89 
+Burger King,"Hand-Spun Shakes (Vanilla, Strawberry, or Chocolate)",Small,$2.49 
+Burger King,"Hand-Spun Shakes (Vanilla, Strawberry, or Chocolate)",Medium,$3.09 
+Burger King,"Hand-Spun Shakes (Vanilla, Strawberry, or Chocolate)",Large,$3.59 
+Burger King,Oreo or Red Velvet Shake (Limited Time),Small,$2.49 
+Burger King,Oreo or Red Velvet Shake (Limited Time),Medium,$3.09 
+Burger King,Oreo or Red Velvet Shake (Limited Time),Large,$3.59 
+Burger King,Smooth Roast Coffee,Small,$1.00 
+Burger King,Smooth Roast Coffee,Medium,$1.59 
+Burger King,Smooth Roast Coffee,Large,$1.79 
+Burger King,Smooth Roast Iced Coffee (Plain or Vanilla),Small,$1.89 
+Burger King,Smooth Roast Iced Coffee (Plain or Vanilla),Medium,$2.39 
+Burger King,Smooth Roast Iced Coffee (Plain or Vanilla),Large,$2.89 
+Burger King,Iced Tea (Sweet or Unsweetened),Small,$1.79 
+Burger King,Iced Tea (Sweet or Unsweetened),Medium,$2.09 
+Burger King,Iced Tea (Sweet or Unsweetened),Large,$2.39 
+Burger King,Drinks,,
+Burger King,Fountain Drink,Small,$1.79 
+Burger King,Fountain Drink,Medium,$2.09 
+Burger King,Fountain Drink,Large,$2.39 
+Burger King,Orange Juice,,$1.69 
+Burger King,Apple Juice,,$1.29 
+Burger King,Bottled Water,,$1.09 
+Burger King,Icee,Small,$1.19 
+Burger King,Icee,Medium,$1.59 
+Burger King,Real Fruit Smoothies & Frappes,,
+Burger King,Frappes (Mocha or Caramel),Small,$2.59 
+Burger King,Frappes (Mocha or Caramel),Medium,$3.09 
+Burger King,Frappes (Mocha or Caramel),Large,$3.59 
+Burger King,Smoothies (Strawberry Banana or Tropical Mango),Small,$2.49 
+Burger King,Smoothies (Strawberry Banana or Tropical Mango),Medium,$2.99 
+Burger King,Smoothies (Strawberry Banana or Tropical Mango),Large,$3.49 
+Burger King,Kids Menu,,
+Burger King,"Includes Side, Drink & Treat",,
+Burger King,Hamburger - Meal,,$3.99 
+Burger King,Cheeseburger - Meal,,$3.99 
+Burger King,Double Cheeseburger - Meal,,$4.99 
+Burger King,Chicken Nuggets - Meal,4 Pc.,$3.99 
+Burger King,Chicken Nuggets - Meal,6 Pc.,$4.99 
+Burger King,Breakfast Kids Menu,,
+Burger King,"Maple Flavor Oatmeal, Milk & Apple Slices",,$4.49 
+Burger King,Breakfast Combos Meals,,
+Burger King,Meals Include Small Hash Browns and Small Coffee. ,,
+Burger King,Upgrade to Medium for $0.69 or Large for $1.00,,
+Burger King,"Croissan'wich with Egg & Cheese with Sausage, Bacon, or Ham",,$2.99 
+Burger King,"Croissan'wich with Egg & Cheese with Sausage, Bacon, or Ham - Meal",$4.79 ,
+Burger King,"King Croissan'wich with Double Sausage, Ham & Sausage or Bacon & Sausage",,$3.69 
+Burger King,"King Croissan'wich with Double Sausage, Ham & Sausage or Bacon & Sausage - Meal",,$5.59 
+Burger King,Fully Loaded Croissan'wich,,$4.29 
+Burger King,Fully Loaded Croissan'wich - Meal,,$6.19 
+Burger King,Two Croissan'wich - Meal,,$5.99 
+Burger King,"Muffin Sandwich with Egg & Cheese with Sausage, Bacon, or Ham",$2.99 ,
+Burger King,"Muffin Sandwich with Egg & Cheese with Sausage, Bacon, or Ham - Meal",$4.79 ,
+Burger King,"Biscuit Sandwich with Egg & Cheese with Sausage, Bacon, or Ham",$2.99 ,
+Burger King,"Biscuit Sandwich with Egg & Cheese with Sausage, Bacon, or Ham - Meal",$4.79 ,
+Burger King,2 Sausage Burrito,,$2.38 
+Burger King,2 Sausage Burritos - Meal,,$4.39 
+Burger King,French Toast Sticks,5 Pc.,$1.99 
+Burger King,French Toast Sticks - Meal,5 Pc.,$3.99 
+Burger King,Maple Flavor Oatmeal - Meal,,$3.99 
+Burger King,Two Cinnamon Rolls,,$2.89 
+Burger King,Two Cinnamon Rolls - Meal,,$3.89 
+Burger King,"Bacon, Sausage, Egg & Cheese Biscuit (Limited Time)",,$3.69 
+Burger King,"Bacon, Sausage, Egg & Cheese Biscuit - Meal (Limited Time)",,$5.59 
+Burger King,Hash Brown Burrito (Limited Time),,$1.19 
+Burger King,Hash Brown Burrito - Meal (Limited Time),,$4.38 
+Burger King,Breakfast Platters,,
+Burger King,Ultimate Breakfast Platter,,$4.89 
+Burger King,Pancake & Sausage Platter,,$3.69 
+Burger King,Breakfast Oatmeal,,
+Burger King,Fruit Topped Maple Flavor,,$1.99 
+Burger King,Original,,$1.99 
+Burger King,Breakfast Value Menu,,
+Burger King,Sausage Burrito,,$1.19 
+Burger King,Sausage Biscuit,,$1.00 
+Burger King,Sausage & Cheese Muffin Sandwich,,$1.19 
+Burger King,French Toast Sticks,3 Pc.,$1.00 
+Burger King,Milk (Fat Free or Low-Fat Chocolate),,$1.49 
+Burger King,Hash Browns,Small,$1.00 
+Burger King,Hash Browns,Medium,$1.69 
+Burger King,Hash Browns,Large,$1.89 
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
