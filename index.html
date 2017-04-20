@@ -60,7 +60,7 @@
             var I = [];
             var T = [];
             var foodType = [];
-            
+            var stateData = [];
             var merged = [];
             
             var imageRef = [{ name: "AppleBees", logo: "http://www.horadecomer.com/uploads/images/logos/logo-applebees.png" },
@@ -168,8 +168,6 @@
                     .attr("y", 550)
                     .attr("width", 300)
                     .attr("height", 20)
-//                    .attr("stroke-width", 1)
-//                    .attr("stroke", "black")
                     .style("fill", "url(#linear-gradient)");
 
 				var xSc = d3.scaleLinear()
@@ -184,7 +182,13 @@
 					.attr("transform", "translate(0," + (575) + ")")
 					.call(xline);
 
-
+                
+                stateData = d3.nest()
+                        .key(function(d) { return d.State;})
+                        .entries(d2);
+                
+                console.log(stateData);
+                
 	
 			   //processing information about price   
                     priceData = d3.nest()
@@ -444,7 +448,19 @@
                 .attr("height", 40)
 				.on("click", function (d){
 				      var states = topojson.feature(us, us.objects.states);
+<<<<<<< Updated upstream
 				      click(d.fastfood, states, mapp, measure);});
+=======
+				      click(d.fastfood, states, mapp);})
+                    .on('mouseover', function() {
+                        d3.select(this)
+            	           .attr("opacity", "0.5");
+                    })
+                   .on("mouseout", function() {
+                        d3.select(this)
+                            .attr("opacity", "1");
+                    });
+>>>>>>> Stashed changes
             
         }
             
@@ -480,7 +496,7 @@
                 
                 //title
 				barchart.append("text")             
-                .attr("transform","translate(" + ((width + 50)/2) + " , 20)")
+                .attr("transform","translate(" + ((width + 50)/2) + " , 10)")
                 .style("font-family", "Quicksand")
                 .style("text-anchor", "middle")
                 .text("Average calorie content per item");
@@ -509,7 +525,8 @@
                 
                 var g = barchart.append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-               g.selectAll(".bar")
+               
+                g.selectAll(".bar")
                     .data(T)
                     .enter()
                     .append("rect")
@@ -588,8 +605,8 @@
                     .style("margin", "0");
 
                 var xScale = d3.scaleBand()
-                    .range([0, w])
-                    .padding(0.5);
+                    .rangeRound([0, w], 0.1)
+                    .paddingInner(0.5);
                 
                 xScale.domain(data.map(function(d) { return d.fastFood; }));
      
@@ -608,8 +625,9 @@
                     .attr("transform", "rotate(-90)" );
                 
                 var yScale = d3.scaleLinear()
-                    .domain([0, max])
                     .range([h, 0]);
+                
+                yScale.domain([0, d3.max(data, function(d) { return d.calorie; })]);
                 
                 var axisC = d3.axisLeft(yScale);
                 
@@ -620,10 +638,9 @@
                   .call(axisC);
                 
                 var g = smallBarChart.append("g").attr("transform", "translate(" + margin.left + ",0)");
+                var bar = g.selectAll(".bar").data(data);
                 
-                g.selectAll(".bar")
-                    .data(data)
-                    .enter()
+                bar.enter()
                     .append("rect")
                     .attr("class", "bar")
                     .attr("x", function(d) { return xScale(d.fastFood); })
@@ -631,14 +648,14 @@
                     .attr("y", function(d) { return yScale(d.calorie); })
                     .attr("height", function(d) { return h - yScale(d.calorie); })
                     .attr("fill", function(d){
-                        if (d.calorie == max){
-                            return ("#e60000");
-                        } 
-                        else{
-                            return ("#ffa07a");
-                        }
+//                        if (d.calorie == max){
+//                                return ("#e60000");
+//                            } 
+//                            else{
+                                return ("#ffa07a");
+                            }
                             
-                    });
+                        );
                 
             }
                 
@@ -699,6 +716,9 @@
 
 	       };			
 	
+            function pieChart(){
+                
+            }
             
         </script>
         

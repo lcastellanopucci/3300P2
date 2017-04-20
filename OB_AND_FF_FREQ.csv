@@ -1,4 +1,4 @@
-State,"Fast-food restaurants per 10,000 residents",% of residents who are obese,Abbr.,Food Insercurity % (2010-12),McDonald's,Burger King,Wendy's,AppleBees,Carl's,Chick-fil-A,Chipotle,Dairy Queen,Hardee's,In-N-Out,Jack in the Box,Papa John's,Sonic,Subway,Whataburger,White Castle,FIPS
+State,"Fast-food restaurants per 10,000 residents",percentResidentsObese,Abbr.,Food Insercurity % (2010-12),McDonald's,Burger King,Wendy's,AppleBees,Carl's,Chick-fil-A,Chipotle,Dairy Queen,Hardee's,In-N-Out,Jack in the Box,Papa John's,Sonic,Subway,Whataburger,White Castle,FIPS
 Alabama,3.5,25.7,AL,17.9,279,156,116,39,0,66,4,84,167,0,0,83,105,456,17,0,2
 Alaska,2.19,25.9,AK,12.1,31,17,10,2,8,1,0,4,0,0,0,7,0,53,0,0,1
 Arizona,3.16,19.6,AZ,14.9,292,178,110,37,68,29,39,111,0,11,193,100,85,433,38,0,5
