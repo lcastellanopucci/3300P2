@@ -25,16 +25,6 @@
                 font-weight:Bold;
             }
         
-            .button{
-                font-family: 'Quicksand', sans-serif;
-                background-color: coral; /* Green */
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                text-align: center;
-                text-decoration: none;
-                font-size: 16px;
-            }
 
     </style>      
     </head>
@@ -501,17 +491,6 @@
                             .attr("fill", "#ff7f4d");
                     });
                 }
-
-             d3.select("body").append("button")
-                .attr("class", "button")
-                .text("Clear Graph")
-                .style("align", "center")
-                .style("position", "absolute")
-                .style("top", "550")
-                .style("left", "60%")
-                .on("click",function(){
-                    d3.selectAll(".smallBarChart").remove();
-            });
     
             
             function moreInfo(info){
@@ -519,6 +498,8 @@
                 var dataToPlot = [];
                 
                 var max = 0;
+                
+                var min = 0;
                 
                 for(var i = 0; i < foodType.length; i++){
                     
@@ -528,10 +509,17 @@
                         
                         for (var x = 0; x < values.length; x++){
                             
+                            min = values[x].Calorie
+                            
                             if (max < values[x].Calorie){
                                 
                                 max = values[x].Calorie
                                 
+                            }
+                            
+                            if (min < values[x].Calorie){
+                                
+                                min = values[x].Calorie
                             }
                             
                                 var info = { fastFood : values[x].Fastfood,
@@ -548,25 +536,28 @@
                 
                 }
                 
-                graphSmallBarChart(dataToPlot, max);
+                graphSmallBarChart(dataToPlot, max, min);
             }
             
                
-            function graphSmallBarChart(data, max){
-
-                var w = 200;
-                var h = 200;
-                console.log(max);
+            function graphSmallBarChart(data, max, min){
+                
+                d3.select(".smallBarChart").remove();
+                
+                var w = 500;
+                var h = 500;
+//                console.log(max);
+                console.log(min);
                 
                 var smallBarChart = d3.select("body").append("svg")
                     .attr("class", "smallBarChart")
                     .attr("width", w + margin.left + margin.right)
-                    .attr("height", h + margin.bottom)
-                    .style("padding", "20")
+                    .attr("height", h + margin.bottom + margin.top)
                     .style("margin", "0");
 
+
                 var xScale = d3.scaleBand()
-                    .range([0, 200])
+                    .range([0, w])
                     .padding(0.5);
                 
                 xScale.domain(data.map(function(d) { return d.fastFood; }));
@@ -587,7 +578,7 @@
                 
                 var yScale = d3.scaleLinear()
                     .domain([0, max])
-                    .range([200, 0]);
+                    .range([h, 0]);
                 
                 var axisC = d3.axisLeft(yScale);
                 
@@ -608,15 +599,19 @@
                     .attr("width", xScale.bandwidth())
                     .attr("y", function(d) { return yScale(d.calorie); })
                     .attr("height", function(d) { return h - yScale(d.calorie); })
-                    .attr("fill", function(d){
-                        if (d.calorie == max){
-                            return ("#e60000");
-                        } 
-                        else{
-                            return ("#ffa07a");
-                        }
-                            
-                    });
+//                    .attr("fill", function(d){
+//                        if (d.calorie == max){
+//                            return ("#ff3b00")
+//                        }
+//                        else if (d.calorie == min){
+//                            return ("#ff7f4d")
+//                        }
+//                        else{
+//                            return ("#ff8533")
+//                        }
+//                            
+//                    });
+                .attr("fill","#ff7f4d"); 
                 
             }
                 
