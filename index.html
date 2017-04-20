@@ -80,7 +80,7 @@
            
             d3.queue()
                 .defer(d3.csv, "price1.csv")
-                .defer(d3.csv, "calories.csv")
+                .defer(d3.csv, "caloriesUpdated.csv")
                 .defer(d3.csv, "FastFood.csv")
 				.defer(d3.json, "us.json")
 				.defer(d3.csv, "OB_AND_FF_FREQ.csv")
@@ -304,7 +304,7 @@
             });
 
             var y = d3.scaleLinear()
-                .domain([0, 850])
+                .domain([0, 1500])
                 .range([500, 0]);
             
             var caloriesAxis = d3.axisLeft(y);
@@ -354,22 +354,22 @@
                         
         function scatterPlot(merged, us, mapp){
 
-//            var averageCaloriesGirl = svg.append("line")
-//                    .attr("x1", margin.left)                       
-//                    .attr("y1", y(666.6))
-//                    .attr("x2", 750)
-//                    .attr("y2", y(666.6))
-//                    .attr("stroke-width", 1.5)
-//                    .attr("stroke", "pink");
-//
-//           
-//            var averageCaloriesGirl = svg.append("line")
-//                    .attr("x1", margin.left)                       
-//                    .attr("y1", y(833))
-//                    .attr("x2", 750)
-//                    .attr("y2", y(833))
-//                    .attr("stroke-width", 1.5)
-//                    .attr("stroke", "blue");
+            var averageCaloriesGirl = svg.append("line")
+                    .attr("x1", margin.left)                       
+                    .attr("y1", y(666.6))
+                    .attr("x2", 750)
+                    .attr("y2", y(666.6))
+                    .attr("stroke-width", 1.5)
+                    .attr("stroke", "pink");
+
+           
+            var averageCaloriesGirl = svg.append("line")
+                    .attr("x1", margin.left)                       
+                    .attr("y1", y(833))
+                    .attr("x2", 750)
+                    .attr("y2", y(833))
+                    .attr("stroke-width", 1.5)
+                    .attr("stroke", "blue");
                 
 //            var images = svg.append("g").selectAll('points')
 //                .data(merged)
@@ -400,8 +400,8 @@
                 .attr("xlink:href", function(d){ return d.logo })
                 .attr("x", function(d){ return x(d.avgPrice) })
                 .attr("y", function(d){ return y(d.calories) })
-                .attr("width", 60)
-                .attr("height", 60)
+                .attr("width", 40)
+                .attr("height", 40)
 				.on("click", function (d){
 				      var states = topojson.feature(us, us.objects.states);
 				      click(d.fastfood, states, mapp);});
@@ -476,8 +476,8 @@
                     .attr("fill", "#ff7f4d")
                     .attr("x", function(d) { return xScale(d.food); })
                     .attr("width", xScale.bandwidth())
-                    .attr("y", function(d) { return y(d.kcal); })
-                    .attr("height", function(d) { return height - margin.top - y(d.kcal); })
+                    .attr("y", function(d) { return yScale(d.kcal); })
+                    .attr("height", function(d) { return height - margin.top - yScale(d.kcal); })
                    .on('click', function(d){
                      
                         moreInfo(d.food)}
@@ -546,8 +546,6 @@
                 
                 var w = 500;
                 var h = 500;
-//                console.log(max);
-                console.log(min);
                 
                 var smallBarChart = d3.select("body").append("svg")
                     .attr("class", "smallBarChart")
