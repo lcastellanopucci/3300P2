@@ -51,15 +51,11 @@
             var usmap = d3.select("body").append("svg")
 				.attr("width", 600)
 				.attr("height", 700);
-           
-            var barchart = d3.select("body").append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom);
             
-            var smallBarChart = d3.select("body").append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom);
-			
+            var barchart = d3.select("body").append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom);
+        
             var P = [];
             var C = [];
             var I = [];
@@ -467,6 +463,8 @@
                 
                 var dataToPlot = [];
                 
+                var max = 0;
+                
                 for(var i = 0; i < foodType.length; i++){
                     
                     if (foodType[i].key == info){
@@ -474,6 +472,12 @@
                        values = foodType[i].values;
                         
                         for (var x = 0; x < values.length; x++){
+                            
+                            if (max < values[x].Calorie){
+                                
+                                max = values[x].Calorie
+                                
+                            }
                             
                             var info = { fastFood : values[x].Fastfood,
                                         
@@ -489,17 +493,22 @@
                 
                 }
                 
-                graphSmallBarChart(dataToPlot);
+                graphSmallBarChart(dataToPlot, max);
             }
+               
+            function graphSmallBarChart(data, max){
+
+                var w = 200;
+                var h = 200;
                 
-            var counter = 0;
-            var displacement = [ 0, 200];
-                
-            function graphSmallBarChart(data){
-                
-                counter++;
-                placeGraph();
-                
+                var smallBarChart = d3.select("body").append("svg")
+                    .attr("class", "smallBarChart")
+                    .attr("width", w + margin.left + margin.right)
+                    .attr("height", h + margin.bottom)
+                    .style("float", "right")
+                    .style("padding", "20")
+                    .style("margin", "0");
+
                 var xScale = d3.scaleBand()
                     .range([0, 200])
                     .padding(0.5);
@@ -512,7 +521,7 @@
                 // x-axis
                 smallBarChart.append("g")
                   .attr("class", "Xaxis")
-                  .attr("transform", "translate("+ displacement[0] +", "+ (200+ displacement[1]) +" )")
+                  .attr("transform", "translate("+margin.left+", "+h+")")
                   .call(fastfoodAxis)
                     .selectAll("text")
                     .style("text-anchor", "end")
@@ -521,7 +530,7 @@
                     .attr("transform", "rotate(-90)" );
                 
                 var yScale = d3.scaleLinear()
-                    .domain([0, 700])
+                    .domain([0, max])
                     .range([200, 0]);
                 
                 var axisC = d3.axisLeft(yScale);
@@ -529,11 +538,10 @@
                 // y-axis
                 smallBarChart.append("g")
                   .attr("class", "yAxis")
-                  .attr("transform", "translate("+ displacement[0] +", 0)")
+                  .attr("transform", "translate("+margin.left+",  0)")
                   .call(axisC);
                 
-                var g = smallBarChart.append("g")
-                    .attr("transform", "translate("+ displacement[0] +"," + displacement[1] + ")");
+                var g = smallBarChart.append("g").attr("transform", "translate(" + margin.left + ",0)");
                 
                 g.selectAll(".bar")
                     .data(data)
@@ -544,26 +552,10 @@
                     .attr("x", function(d) { return xScale(d.fastFood); })
                     .attr("width", xScale.bandwidth())
                     .attr("y", function(d) { return yScale(d.calorie); })
-                    .attr("height", function(d) { return 200 - yScale(d.calorie); })
+                    .attr("height", function(d) { return h - yScale(d.calorie); })
             
-            }
-            
-            function placeGraph(){
-                if (counter % 2 == 0){
-                    displacement[0] = margin.left
-                    displacement[1] = (Math.floor(counter / 2))*200;
-                    console.log(displacement);
-                    return displacement
-                    
-                }
-                if (counter % 2 == 1){
-                    displacement[0] = margin.left + 200;
-                    displacement[1] = (Math.floor(counter / 2)) * 200;
-                    console.log(displacement);
-                    return displacement
-                }
-            }
                 
+            }
                 
             function click(n, states, mapp) {
                 
