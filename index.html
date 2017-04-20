@@ -324,7 +324,7 @@
                 
    
               graphBarChart(T);  
-             d3.select("body").append("button")
+             /*d3.select("body").append("button")
                 .attr("class", "button")
                 .text("Clear Graph")
                 .style("align", "center")
@@ -333,7 +333,7 @@
                 .style("left", "60%")
 				.on("click", function(){click("Fast-food restaurants per 10,000 residents", states, mapp)});
 				
-                /*.on("click",function(){
+                .on("click",function(){
                     d3.selectAll(".smallBarChart").remove();
             });*/			  
             
@@ -529,18 +529,16 @@
                     });
                 }
 
-             /*d3.select("body").append("button")
+             d3.select("body").append("button")
                 .attr("class", "button")
                 .text("Clear Graph")
                 .style("align", "center")
                 .style("position", "absolute")
                 .style("top", "550")
-                .style("left", "60%")
-				.on("click", click("Fast-food restaurants per 10,000 residents", states, mapp));*/
-				
-                //.on("click",function(){
-                  //  d3.selectAll(".smallBarChart").remove();
-            //});
+                .style("left", "60%")				
+                .on("click",function(){
+                    d3.selectAll(".smallBarChart").remove();
+            });
     
             
             function moreInfo(info){
