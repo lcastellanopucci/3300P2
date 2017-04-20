@@ -147,7 +147,7 @@
                 .attr("transform","translate(" + ((width + 50)/2) + " , 90)")
                 .style("font-family", "Quicksand")
                 .style("text-anchor", "middle")
-                .text("FastFood Density in US")
+                .text("FastFood Density in US (log scale)")
 				.style("cursor", "pointer"); 
                 
                 linearGradient.append("stop") 
@@ -171,7 +171,20 @@
 //                    .attr("stroke", "black")
                     .style("fill", "url(#linear-gradient)");
 
-			   
+				var xSc = d3.scaleLinear()
+					.range([150, 450])
+					.domain([0, Math.pow(Math.E,d3.max(freq, function(d) { return d["Fast-food restaurants per 10,000 residents"]; }))] );
+
+				var xline = d3.axisBottom(xSc).ticks(2);
+
+
+				var xAx = usmap.append("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(0," + (575) + ")")
+					.call(xline);
+
+
+	
 			   //processing information about price   
                     priceData = d3.nest()
                         .key(function(d) { return d.FastFood;})
@@ -618,8 +631,18 @@
             function click(n, states, mapp) {
                 var stat = "";
                 
-				//var text = usmap.select("text");
+				var xSc = d3.scaleLinear()
+					.range([150, 450])
+					.domain([0, Math.pow(Math.E,d3.max(freq, function(d) { return d[n]; }))] );
 
+				var xline = d3.axisBottom(xSc);
+
+
+				var xAx = usmap.select("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(0," + (575) + ")")
+					.call(xline);
+					
 				usmap.select("#t2").text(n)
 				 .attr("x", 280)
                  .attr("y", 150)
