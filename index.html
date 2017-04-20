@@ -24,12 +24,22 @@
                 font-size:30;
                 font-weight:Bold;
             }
+        
+            .button{
+                font-family: 'Quicksand', sans-serif;
+                background-color: coral; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 16px;
+            }
 
     </style>      
     </head>
     <body>
         
-        <h1> FastFood Density Versus Obesity</h1>
 
         <script>
 
@@ -143,6 +153,13 @@
                     .attr("x2", "100%")
                     .attr("y2", "0%");
                 
+               //title
+               usmap.append("text")             
+                .attr("transform","translate(" + ((width + 50)/2) + " , 90)")
+                .style("font-family", "Quicksand")
+                .style("text-anchor", "middle")
+                .text("FastFood Density in US"); 
+                
                 linearGradient.append("stop") 
                     .attr("offset", "0%")   
                     .attr("stop-color", "#ffffff"); 
@@ -245,8 +262,6 @@
                     }
                 }
 
-          
-            
                 for (var x = 0; x < merged.length; x++){
 
                     for ( var y = 0; y < I.length; y++){
@@ -267,8 +282,6 @@
 				});
                 
             scatterPlot(merged, us, mapp);
-               
-            console.log(caloriesType);
                 
                  //processing info from calories.csv
                 var type = d3.nest()
@@ -319,12 +332,20 @@
                   .attr("transform", "translate("+margin.left+", 500 )")
                   .call(priceAxis);
             
+            //x-axis label
             svg.append("text")             
                 .attr("transform","translate(" + ((width + 50)/2) + " ," + (height + margin.top + 20) + ")")
                 .style("font-family", "Quicksand")
                 .style("text-anchor", "middle")
                 .text("Price ($)");
 
+            //title
+               svg.append("text")             
+                .attr("transform","translate(" + ((width + 50)/2) + " , 15)")
+                .style("font-family", "Quicksand")
+                .style("text-anchor", "middle")
+                .text("Calorie content and price for a meal");
+            
             // y-axis
               svg.append("g")
                   .attr("class", "Yaxis")
@@ -420,11 +441,34 @@
                     .attr("dy", "-.55em")
                     .attr("transform", "rotate(-90)" );
                 
+                //x-axis label
+                 barchart.append("text")             
+                .attr("transform","translate(" + ((width + 50)/2) + " ," + (height + margin.top + 100) + ")")
+                .style("font-family", "Quicksand")
+                .style("text-anchor", "middle")
+                .text("Items");
+                
+                //title
+                barchart.append("text")             
+                .attr("transform","translate(" + ((width + 50)/2) + " , 20)")
+                .style("font-family", "Quicksand")
+                .style("text-anchor", "middle")
+                .text("Average calorie content per item");
+                
                 var yScale = d3.scaleLinear()
                     .domain([0, 700])
                     .range([500, 0]);
                 
                 var axisCalories = d3.axisLeft(yScale);
+                
+                barchart.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", margin.left-50)
+                .attr("x",0 - (height / 2))
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .style("font-family", "Quicksand")
+                .text("Calories");   
                 
                 // y-axis
                 barchart.append("g")
@@ -457,6 +501,17 @@
                             .attr("fill", "#ff7f4d");
                     });
                 }
+
+             d3.select("body").append("button")
+                .attr("class", "button")
+                .text("Clear Graph")
+                .style("align", "center")
+                .style("position", "absolute")
+                .style("top", "550")
+                .style("left", "60%")
+                .on("click",function(){
+                    d3.selectAll(".smallBarChart").remove();
+            });
     
             
             function moreInfo(info){
@@ -479,13 +534,13 @@
                                 
                             }
                             
-                            var info = { fastFood : values[x].Fastfood,
+                                var info = { fastFood : values[x].Fastfood,
                                         
-                                        calorie: values[x].Calorie
+                                            calorie: values[x].Calorie
+
+                                            }
                             
-                                        }
-                            
-                            dataToPlot.push(info);
+                                dataToPlot.push(info);
 
                         }
             
@@ -495,17 +550,18 @@
                 
                 graphSmallBarChart(dataToPlot, max);
             }
+            
                
             function graphSmallBarChart(data, max){
 
                 var w = 200;
                 var h = 200;
+                console.log(max);
                 
                 var smallBarChart = d3.select("body").append("svg")
                     .attr("class", "smallBarChart")
                     .attr("width", w + margin.left + margin.right)
                     .attr("height", h + margin.bottom)
-                    .style("float", "right")
                     .style("padding", "20")
                     .style("margin", "0");
 
@@ -548,12 +604,19 @@
                     .enter()
                     .append("rect")
                     .attr("class", "bar")
-                    .attr("fill", "#ffb699")
                     .attr("x", function(d) { return xScale(d.fastFood); })
                     .attr("width", xScale.bandwidth())
                     .attr("y", function(d) { return yScale(d.calorie); })
                     .attr("height", function(d) { return h - yScale(d.calorie); })
-            
+                    .attr("fill", function(d){
+                        if (d.calorie == max){
+                            return ("#e60000");
+                        } 
+                        else{
+                            return ("#ffa07a");
+                        }
+                            
+                    });
                 
             }
                 
@@ -571,14 +634,11 @@
                     .domain(ext)
                     .range(["#ffffff", "#ffdacc", "#ffb699", "#ffa07a", "#ff7f4d", "#ff5b1a", "#e64100", "#b33300", "#802400", "#4d1600"]);
                 
-                mapp.style("fill", function (state) {
-				console.log(color_r);	
+                mapp.style("fill", function (state) {	
                     
                     stat = state;
                     
                     if (restmap.get(state.id)){
-				
-                        console.log(restmap.get(state.id));
                         
                         return color_r(restmap.get(state.id)[n]);  
 		  
@@ -590,5 +650,7 @@
 	
             
         </script>
+        
+        
     </body>
 </html>
