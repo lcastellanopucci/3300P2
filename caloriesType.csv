@@ -1,0 +1,336 @@
+Fastfood,Food,Type,Serving Size,Calorie,Total Fat,Saturated Fat,Trans Fat,Carbs,Sodium 
+A&W,French Fries Large,Chili Cheese,198,400,19,5,4,51,990
+A&W,French Fries Large,Cheese,170,380,19,5,4,50,870
+A&W,French Fries Large,Chili,170,370,16,4.5,6,49,780
+A&W,French Fries Large,Regular,156,430,18,4.5,5.5,61,640
+Arby's,French Fries Large,Homestyle,213,566,37,7,1,82,1029
+Arby's,French Fries Large,Curly,198,631,37,7,1,73,1476
+Burger King,French Fries Large,Salt Not Added,160,500,28,6,6,57,530
+Burger King,French Fries Large,Regular,160,500,28,6,6,57,820
+Carl's Jr.,French Fries Large,Regular,198,620,29,6,Unknown,80,380
+Dairy Queen,French Fries Large,Regular,280,730,33,6,5,100,1530
+Del Taco,French Fries Large,Regular,198,490,32,5,Unknown,47,380
+Hardee's,French Fries Large,Regular,193,610,28,6,Unknown,78,370
+Hardee's,French Fries Large,Crispy Curls,153,480,23,6,Unknown,60,1190
+In-N-Out Burger**,French Fries Large,Regular**,125**,400**,18**,5**,0**,54**,245**
+Jack In The Box,French Fries Large,Natural Cut,236,640,33,8,10,77,1180
+Jack In The Box,French Fries Large,Seasoned Curly,170,550,31,6,10,60,1200
+KFC*,French Fries Large,Potato Wedges*,102*,260*,13*,2.5*,0*,33*,740*
+McDonald's,French Fries Large,Regular,170,570,30,6,8,70,330
+Popeyes**,French Fries Large,Regular**,88**,310**,17**,7**,1**,35**,660**
+Sonic,French Fries Large,Chili/Cheese,186,450,25,9,0.5,48,610
+Sonic,French Fries Large,Cheese,125,380,19,7,0,44,600
+Sonic,French Fries Large,Regular,98,280,11,2,0,42,135
+Wendy's,French Fries Large,Regular,Unknown,540,26,4,1,69,550
+White Castle,French Fries Large,Regular,244,700,34,6,11,89,560
+Burger King,Hamburger,Regular,121,290,12,4.5,0,30,560
+Carl's Jr,Hamburger,Big Hamburger,209,470,17,6,Unknown,54,1060
+Dairy Queen,Hamburger,Homestyle Burger,140,350,14,7,0.5,33,400
+Hardee's,Hamburger,Regular,118,310,12,4,Unknown,36,560
+In-N-Out Burger,Hamburger,Regular,243,390,19,5,0,39,650
+Jack in the Box,Hamburger,Regular,118,310,14,6,1,30,600
+McDonald's,Hamburger,Regular,100,250,9,3.5,0.5,31,520
+Sonic,Hamburger,Jr. Burger,117,310,15,5,0.5,30,610
+Wendy's,Hamburger,Jr. Hamburger,Unknown,230,8,3,0,26,500
+White Castle,Hamburger,Regular,58,140,7,2.5,0.5,14,210
+McDonald's,Hamburger,Quarter Pounder,169,410,19,7,1,37,730
+McDonald's,Hamburger,Quarter Pounder (cheese),198,510,26,12,1.5,40,1190
+McDonald's,Hamburger,Double Quarter Pounder (cheese),279,740,42,19,2.5,40,1380
+McDonald's,Hamburger,Big Mac,214,540,29,10,1.5,43,1040
+McDonald's,Hamburger,Double Cheeseburger,165,440,23,11,1.5,34,1150
+McDonald's,Hamburger,Big N' Tasty,206,460,24,8,1.5,37,720
+McDonald's,Hamburger,Big N' Tasty (cheese),220,510,28,11,1.5,38,960
+Burger King,Hamburger,Whopper,290,670,39,11,1.5,51,1020
+Burger King,Hamburger,Whopper (cheese),315,760,47,16,1.5,52,1450
+Burger King,Hamburger,Double Whopper,373,900,57,19,2,51,1090
+Burger King,Hamburger,Double Whopper (cheese),398,990,64,24,2.5,52,1520
+Burger King,Hamburger,Triple Whopper,456,1130,74,27,3,51,1160
+Burger King,Hamburger,Triple Whopper (cheese),480,1230,82,32,3.5,52,1590
+Burger King,Hamburger,Whopper Jr.,158,370,21,6,0.5,31,570
+Burger King,Hamburger,Whopper Jr. (cheese),170,410,24,8,1,32,780
+Burger King,Hamburger,Double Hamburger,164,410,21,9,1,30,600
+Burger King,Hamburger,Double Stacker,190,610,39,16,1.5,32,1100
+Burger King,Hamburger,Triple Stacker,250,800,54,23,2,33,1450
+Burger King,Hamburger,Quad Stacker,311,1000,68,30,3,34,1800
+Burger King,Hamburger,Double Cheeseburger,189,500,29,14,1.5,31,1030
+Wendy's,Hamburger,Single,Unknown,430,20,7,1,37,900
+Wendy's,Hamburger,Double (cheese),Unknown,700,40,16,2.5,38,1500
+Wendy's,Hamburger,Triple (cheese),Unknown,980,59,25,3.5,38,2090
+Wendy's,Hamburger,Baconator,Unknown,830,51,22,2.5,35,1920
+Hardee's,Hamburger,Thickburger,349,910,64,21,Unknown,53,1560
+Hardee's,Hamburger,Cheeseburger,254,680,39,19,Unknown,52,1450
+Hardee's,Hamburger,Mushroom N' Swiss Thickburger,276,720,42,21,Unknown,48,1570
+Hardee's,Hamburger,Bacon Cheese Thickburger,334,910,64,24,Unknown,50,1550
+Hardee's,Hamburger,Low Carb Thickburger,245,420,32,12,Unknown,5,1010
+Hardee's,Hamburger,Six Dollar Burger,412,1060,73,28,Unknown,58,1950
+Hardee's,Hamburger,Grilled Sourdough Thickburger,381,1030,77,28,Unknown,42,1910
+Hardee's,Hamburger,Double Thickburger,471,1250,90,35,Unknown,54,2160
+Hardee's,Hamburger,Double Bacon Cheese Thickburger,463,1300,97,38,Unknown,50,2200
+Hardee's,Hamburger,Monster Thickburger,413,1420,108,43,Unknown,46,2770
+Hardee's,Hamburger,Double Cheeseburger,186,510,26,5,Unknown,38,1120
+Hardee's,Hamburger,Double Hamburger,161,420,19,5,Unknown,37,670
+A&W,Hamburger,Papa Burger,288,720,42,15,4,46,1390
+A&W,Hamburger,Bacon Double Cheeseburger,303,800,48,17,4,47,1610
+A&W,Hamburger,Double Cheeseburger,288,720,42,15,4,46,1370
+A&W,Hamburger,Bacon Cheeseburger,223,570,33,10,3.5,41,1200
+In-N-Out Burger,Hamburger,Double-Double,330,670,41,18,1,39,1440
+Jack in the Box,Hamburger,Bacon Ultimate Cheeseburger,338,1090,77,30,3,53,2040
+Jack in the Box,Hamburger,Bacon n' Cheese Ciabatta Burger,395,1120,76,28,3,66,1670
+Jack in the Box,Hamburger,Jumbo Jack,261,600,35,12,1.5,51,940
+Jack in the Box,Hamburger,Jumbo Jack (cheese),286,690,42,16,1.5,54,1310
+Jack in the Box,Hamburger,Junior Bacon Cheeseburger,131,430,25,9,1,30,820
+Jack in the Box,Hamburger,Single Bacon n' Cheese Ciabatta Burger,308,870,54,18,1.5,66,1550
+Jack in the Box,Hamburger,Sirloin Cheeseburger,421,1070,71,25,1.5,61,1850
+Jack in the Box,Hamburger,Sirloin Bacon n' Cheese Burger,422,1120,73,24,2.5,63,2620
+Jack in the Box,Hamburger,Sourdough Jack,245,710,51,18,3,36,1230
+Jack in the Box,Hamburger,Sourdough Ultimate Cheeseburger,291,950,73,29,4.5,36,1360
+Jack in the Box,Hamburger,Ultimate Cheeseburger,323,1010,71,28,3,53,1580
+White Castle,Hamburger,Bacon Cheeseburger,71,200,11,5,1,15,480
+White Castle,Hamburger,Double White Castle,104,250,13,5,1,22,340
+White Castle,Hamburger,Double Cheeseburger,118,300,17,8,1.5,23,590
+White Castle,Hamburger,Double Jalapeno Cheeseburger,122,320,19,9,1.5,23,680
+White Castle,Hamburger,Double Bacon Cheeseburger,130,370,22,10,1.5,23,880
+Sonic,Hamburger,Bacon Cheeseburger,279,780,48,16,1.5,57,1300
+Sonic,Hamburger,SuperSonic Cheeseburger (mayo),343,980,64,24,2.5,58,1430
+Sonic,Hamburger,Sonic Burger (mayo),248,650,37,10,1,55,720
+Sonic,Hamburger,Sonic Cheeseburger (mayo),266,720,42,14,1.5,56,1040
+Sonic,Hamburger,Dixie Burger,255,660,37,10,1,55,810
+Sonic,Hamburger,Dixie Cheeseburger,273,720,42,14,1.5,56,1120
+Sonic,Hamburger,California Cheeseburger,266,690,39,13,1.5,57,1060
+Sonic,Hamburger,SuperSonic Jalapeno Cheeseburger,313,890,53,22,2.5,56,1600
+Sonic,Hamburger,Thousand Island Cheeseburger,266,680,38,13,1.5,58,1130
+Sonic,Hamburger,Jalapeno Cheeseburger,215,610,31,12,1.5,53,930
+Sonic,Hamburger,Jalapeno Burger,197,550,26,9,1,52,610
+Sonic,Hamburger,Green Chili Cheeseburger,287,630,31,12,1.5,56,1070
+Sonic,Hamburger,Chili Cheeseburger,226,660,35,14,1.5,56,990
+Sonic,Hamburger,Hickory Cheeseburger,236,640,31,12,1.5,61,1170
+Sonic,Hamburger,Jr. Double Cheeseburger,190,570,35,16,1.5,33,1290
+Dairy Queen,Hamburger,Homestyle Double Cheeseburger,226,640,34,18,1,34,950
+Dairy Queen,Hamburger,Homestyle Bacon Double Cheeseburger,245,730,41,21,1,35,1270
+Dairy Queen,Hamburger,Ultimate Burger,259,780,48,22,1.5,33,1110
+Dairy Queen,Hamburger,1/4 lb FlameThrower GrillBurger,245,780,54,14,3,41,1490
+Dairy Queen,Hamburger,1/2 lb FlameThrower GrillBurger,344,1030,73,23,4,41,2020
+Dairy Queen,Hamburger,Classic GrillBurger,212,470,23,7,2.5,42,1020
+Dairy Queen,Hamburger,Classic GrillBurger (cheese),231,560,30,11,2.5,42,1160
+Dairy Queen,Hamburger,1/2 lb GrillBurger,297,670,37,12,3.5,42,1310
+Dairy Queen,Hamburger,1/2 lb GrillBurger (cheese),330,820,49,19,3.5,47,1510
+Dairy Queen,Hamburger,Bacon Cheddar GrillBurger,229,650,37,13,2.5,41,1480
+Dairy Queen,Hamburger,Mushroom Swiss GrillBurger,210,630,40,11,3,39,950
+Carl's Jr.,Hamburger,Six Dollar Burger,430,1010,68,27,Unknown,60,1980
+Carl's Jr.,Hamburger,Western Bacon Six Dollar Burger,382,1130,66,28,Unknown,83,2540
+Carl's Jr.,Hamburger,Bacon Cheese Six Dollar Burger,409,1070,76,30,Unknown,50,1910
+Carl's Jr.,Hamburger,Double Six Dollar Burger,602,1520,111,47,Unknown,60,2760
+Carl's Jr.,Hamburger,Low Carb Six Dollar Burger,267,490,37,15,Unknown,6,1290
+Carl's Jr.,Hamburger,Famous Star (cheese),278,660,39,12,Unknown,53,1260
+Carl's Jr.,Hamburger,Super Star (cheese),385,930,59,21,Unknown,54,1600
+Carl's Jr.,Hamburger,Philly Cheesesteak Burger,297,830,55,17,Unknown,52,1510
+Carl's Jr.,Hamburger,Western Bacon Cheeseburger,241,710,33,12,Unknown,70,1480
+Carl's Jr.,Hamburger,Double Western Bacon Cheeseburger,323,970,52,21,Unknown,71,1820
+Carl's Jr.,Hamburger,Jalapeno Burger,286,720,45,8,Unknown,50,1320
+Del Taco,Hamburger,Double Del Cheeseburger,202,560,35,12,Unknown,35,960
+Del Taco,Hamburger,Bacon Double Del Cheeseburger,212,610,39,14,Unknown,35,1130
+McDonald's,Chicken ,Chicken McNuggets (6pc),96,250,15,3,1.5,15,670
+McDonald's,Chicken ,Chicken Selects Premium Strips (5pc),221,630,33,6,4.5,46,1550
+Burger King,Chicken ,Chicken Tenders (6pc),92,250,15,3.5,2.5,16,720
+Burger King,Chicken ,Chicken Fries (6pc),85,260,15,3.5,3,18,650
+Wendy's,Chicken ,Chicken Nuggets (5pc),Unknown,230,15,3,0,12,520
+Arby's,Chicken ,Chicken Tenders (5pc),218,630,31,5,0,47,1977
+Arby's,Chicken ,Popcorn Chicken (large),184,531,26,6,1,39,1666
+Hardee's,Chicken ,Chicken Strips (5pc),241,630,34,6,Unknown,45,2260
+Dairy Queen,Chicken ,Chicken Strip Basket (6pc),531,1270,67,11,12,121,2910
+KFC,Chicken ,Popcorn Chicken (large),160,550,35,6,0,30,1600
+Carl's Jr.,Chicken ,Chicken Breast Strips (5pc),215,710,41,6,Unknown,46,2020
+White Castle,Chicken ,Chicken Rings (6pc),110,340,23,4.5,4,15,670
+McDonald's,Chicken Sandwiches,McChicken,147,360,16,3.5,1,40,790
+McDonald's,Chicken Sandwiches,Premium Grilled Chicken Classic,226,420,10,2,0,51,1190
+McDonald's,Chicken Sandwiches,Premium Crispy Chicken Classic,229,500,17,3.5,1.5,61,1330
+McDonald's,Chicken Sandwiches,Premium Grilled Chicken Club,260,570,21,7,0,52,1720
+McDonald's,Chicken Sandwiches,Premium Crispy Chicken Club,263,660,28,8,1.5,63,1860
+Burger King,Chicken Sandwiches,TENDERGRILL (with mayo),258,510,19,3.5,0.5,49,1180
+Burger King,Chicken Sandwiches,TENDERCRISP,284,790,44,8,4,68,1640
+Burger King,Chicken Sandwiches,Original,219,660,40,8,2.5,52,1440
+Burger King,Chicken Sandwiches,Chick'n Crisp (with mayo),144,480,31,5,2,36,870
+Wendy's,Chicken Sandwiches,Ultimate Chicken Grill,Unknown,320,7,1.5,0,36,950
+Wendy's,Chicken Sandwiches,Spicy Chicken Fillet,Unknown,440,16,2.5,0,46,1320
+Wendy's,Chicken Sandwiches,Homestyle Chicken Fillet,Unknown,430,16,2.5,0,48,1140
+Wendy's,Chicken Sandwiches,Chicken Club,Unknown,540,25,7,0.5,49,1410
+Wendy's,Chicken Sandwiches,Crispy,Unknown,320,14,2.5,0,34,660
+Arby's,Chicken Sandwiches,Crispy Fillet,238,526,30,5,0,50,901
+Arby's,Chicken Sandwiches,Grilled Fillet,233,414,17,3,0,36,913
+Hardee's,Chicken Sandwiches,Charbroiled Club,277,560,30,8,Unknown,32,1430
+Hardee's,Chicken Sandwiches,Charbroiled BBQ,242,340,4,1,Unknown,40,1070
+Hardee's,Chicken Sandwiches,Low Carb Charbroiled Club,250,370,21,7,Unknown,10,1170
+Hardee's,Chicken Sandwiches,Big Fillet,351,800,37,6,Unknown,76,1890
+Hardee's,Chicken Sandwiches,Spicy,159,470,25,5,Unknown,46,1220
+A&W,Chicken Sandwiches,Grilled,213,440,19,3.5,3,34,860
+A&W,Chicken Sandwiches,Crispy,219,590,29,4.5,4.5,54,1170
+Jack In The Box,Chicken Sandwiches,Regular,145,400,21,4.5,2.5,38,730
+Jack In The Box,Chicken Sandwiches,Jack's Spicy,270,620,31,6,3,61,1100
+Jack In The Box,Chicken Sandwiches,Sourdough Grilled,266,530,28,7,2,34,1430
+White Castle,Chicken Sandwiches,Breast (with cheese),82,200,8,2.5,1.5,21,720
+White Castle,Chicken Sandwiches,Supreme,88,230,10,3.5,1.5,21,860
+Sonic,Chicken Sandwiches,Club Toaster,257,740,46,11,0.5,55,1740
+Dairy Queen,Chicken Sandwiches,Crispy,198,540,29,5,2.5,47,700
+Dairy Queen,Chicken Sandwiches,Grilled,177,350,16,2.5,0,49,780
+KFC,Chicken Sandwiches,Snacker,119,290,13,2.5,0,29,680
+KFC,Chicken Sandwiches,Honey BBQ Snacker,101,210,3,0.5,0,32,530
+KFC,Chicken Sandwiches,Double Crunch,213,470,23,4.5,0,38,1190
+KFC,Chicken Sandwiches,Crispy Twister,252,550,28,6,0,49,1500
+KFC,Chicken Sandwiches,Oven Roasted Twister,269,420,17,4,0,40,1250
+KFC,Chicken Sandwiches,Tender Roast,236,380,13,3,0,29,1180
+KFC,Chicken Sandwiches,Honey BBQ,147,280,3.5,1,0,40,780
+Subway,Chicken Sandwiches,Oven Roasted,238,310,5,1.5,0,48,830
+Carl's Jr.,Chicken Sandwiches,Charbroiled BBQ,239,360,4.5,1,Unknown,48,1150
+Carl's Jr.,Chicken Sandwiches,Charbroiled Club,264,550,25,7,Unknown,43,1410
+Carl's Jr.,Chicken Sandwiches,Charbroiled Santa Fe,264,610,32,8,Unknown,43,1540
+Carl's Jr.,Chicken Sandwiches,Spicy,213,560,30,6,Unknown,59,1480
+Boston Market,Chicken Sandwiches,Boston Carver,321,700,29,7,0,68,1560
+Boston Market,Chicken Sandwiches,Half Boston Carver,199,340,15,4,0,29,710
+Popeyes,Chicken Sandwiches,Deluxe,265,630,31,8,1,53,1480
+Chick-Fil-A,Chicken Sandwiches,Chicken Sandwich,170,410,16,3.5,0,38,1300
+Chick-Fil-A,Chicken Sandwiches,Chargrilled Chicken Sandwich,193,270,3.5,1,0,33,940
+Chick-Fil-A,Chicken Sandwiches,Chargrilled Chicken Club Sandwich,221,380,11,5,0,33,1240
+Chick-Fil-A,Chicken Sandwiches,Chicken Salad Sandwich,153,350,15,3,0,32,880
+Burger King (King Size),Onion Ring,Onion Rings,150,500,25,5,4.5,62,720
+A&W,Onion Ring,Onion Rings,113,350,16,3.5,4.5,45,710
+Jack In The Box,Onion Ring,Onion Rings,119,500,30,6,10,51,420
+White Castle (Sack),Onion Ring,Onion Rings,178,410,20,5,7,53,400
+"White Castle (Homestyle, Sack)",Onion Ring,Onion Rings,178,790,44,8,30,91,860
+Sonic (Large),Onion Ring,Onion Rings,227,640,31,5,0.5,80,300
+Dairy Queen (Large),Onion Ring,Onion Rings,142,590,37,7,9,56,930
+Carl's Jr.,Onion Ring,Onion Rings,128,430,21,4,Unknown,53,550
+McDonald's,,Egg McMuffin,139,300,12,5,0,30,820
+McDonald's,,Sausage McMuffin,114,370,22,8,0,29,850
+McDonald's,,Sausage McMuffin (egg),164,450,27,10,0,30,920
+McDonald's,,"Bacon, Egg & Cheese Biscuit (regular)",144,450,25,11,0,36,1360
+McDonald's,,"Sausage Biscuit (egg, regular)",159,500,32,12,0,35,1130
+McDonald's,,Sausage Biscuit (regular),113,410,27,10,0,33,1040
+McDonald's,,Biscuit (regular),72,250,11,5,0,32,700
+McDonald's,,"Bacon, Egg & Cheese McGriddles",173,460,21,9,0,48,1360
+McDonald's,,"Sausage, Egg & Cheese McGriddles",202,560,32,12,0,48,1360
+McDonald's,,Sausage McGriddles,141,420,22,8,0,44,1030
+Burger King,,Croissan'wich Egg & Cheese,115,300,17,6,2,26,740
+Burger King,,Croissan'wich Sausage & Cheese,106,370,25,9,2,23,810
+Burger King,,"Croissan'wich Sausage, Egg & Cheese",159,470,32,11,2.5,26,1060
+Burger King,,"Croissan'wich Ham, Egg & Cheese",149,340,18,6,2,26,1230
+Burger King,,"Croissan'wich Bacon, Egg & Cheese",122,340,20,7,2,26,890
+Burger King,,"Double Croissan'wich Sausage, Egg & Cheese",215,680,51,18,3,26,1590
+Burger King,,"Double Croissan'wich Bacon, Egg & Cheese",142,430,27,10,2,27,1250
+Burger King,,"Double Croissan'wich Ham, Egg & Cheese",196,420,23,9,2,27,2210
+Burger King,,"Double Croissan'wich Sausage, Bacon, Egg & Cheese",179,550,39,14,2.5,27,1420
+Burger King,,"Double Croissan'wich Ham, Bacon, Egg & Cheese",169,420,24,9,2,27,1600
+Burger King,,"Double Croissan'wich Ham, Sausage, Egg & Cheese",206,550,37,14,2.5,27,2040
+Burger King,,Enormous Omelet Sandwich,266,730,45,16,1,44,1940
+Burger King,,Ham Omelet Sandwich,139,330,14,5,0,35,1130
+Burger King,,Sausage Biscuit,118,390,26,8,5,28,1020
+Burger King,,"Ham, Egg & Cheese Biscuit",156,390,22,7,5,31,1410
+Burger King,Breakfast Sandwich,"Sausage, Egg & Cheese Biscuit",183,530,37,12,6,31,1490
+Burger King,Breakfast Sandwich,"Bacon, Egg & Cheese Biscuit",146,410,25,8,5,31,1320
+Hardee's,Breakfast Sandwich,Egg Biscuit,152,450,51,20,Unknown,35,940
+Hardee's,Breakfast Sandwich,Bacon Biscuit,120,430,28,7,Unknown,35,1110
+Hardee's,Breakfast Sandwich,Sausage Biscuit,142,530,38,10,Unknown,36,1240
+Hardee's,Breakfast Sandwich,Country Ham Biscuit,144,440,26,6,Unknown,36,1710
+Hardee's,Breakfast Sandwich,Breaded Chicken Fillet Biscuit,226,600,34,7,Unknown,50,1680
+Hardee's,Breakfast Sandwich,Breaded Country Steak Biscuit,180,620,41,11,Unknown,44,1360
+Hardee's,Breakfast Sandwich,Breaded Pork Chop Biscuit,222,690,42,8,Unknown,48,1330
+Hardee's,Breakfast Sandwich,Sausage & Egg Biscuit,185,610,44,11,Unknown,36,1290
+Hardee's,Breakfast Sandwich,Country Steak & Egg Biscuit,223,690,47,11,Unknown,44,1800
+Hardee's,Breakfast Sandwich,"Bacon, Egg & Cheese Biscuit",174,560,38,11,Unknown,37,1360
+Hardee's,Breakfast Sandwich,"Ham, Egg & Cheese Biscuit",220,560,35,10,Unknown,37,1800
+Hardee's,Breakfast Sandwich,Loaded Omelet Biscuit,198,640,44,14,Unknown,37,1510
+Hardee's,Breakfast Sandwich,Monster Biscuit,212,710,51,17,Unknown,37,2250
+Hardee's,Breakfast Sandwich,Sunrise Croissant (Ham),164,430,26,10,Unknown,28,1050
+Hardee's,Breakfast Sandwich,Sunrise Croissant (Bacon),138,450,29,12,Unknown,28,900
+Hardee's,Breakfast Sandwich,Sunrise Croissant (Sausage),161,550,38,15,Unknown,29,1030
+Hardee's,Breakfast Sandwich,Frisco Breakfast Sandwich,185,420,20,7,Unknown,37,1340
+Hardee's,Breakfast Sandwich,Loaded Breakfast Burrito,258,780,51,20,Unknown,38,1620
+Arby's,Breakfast Sandwich,Bacon & Egg Croissant,120,337,22,10,0,23,651
+Arby's,Breakfast Sandwich,Bacon Biscuit,95,340,21,6,0,29,1028
+Arby's,Breakfast Sandwich,"Bacon, Egg & Cheese Biscuit",158,461,28,8,0,30,1446
+Arby's,Breakfast Sandwich,"Bacon, Egg & Cheese Croissant",133,378,22,10,0,23,850
+Arby's,Breakfast Sandwich,"Bacon, Egg & Cheese Sourdough",173,437,16,5,0,40,1220
+Arby's,Breakfast Sandwich,"Bacon, Egg & Cheese Wrap",193,515,29,8,0.5,50,1367
+Arby's,Breakfast Sandwich,Egg & Cheese Sourdough,164,392,12,3,0,40,1058
+Arby's,Breakfast Sandwich,"Sausage, Egg & Cheese Biscuit",185,557,38,11,0,30,1579
+Arby's,Breakfast Sandwich,"Sausage, Egg & Cheese Sourdough",191,514,27,8,0,40,1232
+Arby's,Breakfast Sandwich,Ham & Cheese Croissant,113,274,12,7,0,22,842
+Arby's,Breakfast Sandwich,Ham Biscuit,125,316,17,4,0,29,1240
+Arby's,Breakfast Sandwich,"Ham, Egg & Cheese Biscuit",188,437,23,6,0,31,1658
+Arby's,Breakfast Sandwich,"Ham, Egg & Cheese Croissant",213,434,24,10,0,25,1282
+Arby's,Breakfast Sandwich,"Ham, Egg & Cheese Sourdough",296,679,35,11,0,42,2104
+Arby's,Breakfast Sandwich,"Ham, Egg & Cheese Wrap",242,568,31,10,1,51,1929
+Arby's,Breakfast Sandwich,Sausage & Egg Croissant,147,433,32,13,0,23,784
+Arby's,Breakfast Sandwich,Sausage Biscuit,122,436,31,9,0,28,1160
+Arby's,Breakfast Sandwich,Sausage Gravy Biscuit,238,961,68,14,0,107,3755
+Arby's,Breakfast Sandwich,"Sausage, Egg & Cheese Croissant",160,475,32,13,0,23,982
+Arby's,Breakfast Sandwich,"Sausage, Egg & Cheese Wrap",239,689,45,15,1,50,1849
+Jack In The Box,Breakfast Sandwich,"Bacon, Egg & Cheese Biscuit",149,430,25,8,5,34,1100
+Jack In The Box,Breakfast Sandwich,Bacon Breakfast Jack,113,300,14,5,0.5,29,730
+Jack In The Box,Breakfast Sandwich,Breakfast Jack,125,290,12,4.5,0,29,760
+Jack In The Box,Breakfast Sandwich,Chicken Biscuit,154,450,24,6,6,42,980
+Jack In The Box,Breakfast Sandwich,Ciabatta Breakfast Sandwich,278,710,36,10,1,63,1730
+Jack In The Box,Breakfast Sandwich,Extreme Sausage Sandwich,213,670,48,17,1.5,31,1300
+Jack In The Box,Breakfast Sandwich,Meaty Breakfast Burrito,183,480,29,10,1,29,1210
+Jack In The Box,Breakfast Sandwich,Sausage Biscuit,131,440,29,8,5,32,870
+Jack In The Box,Breakfast Sandwich,Sausage Breakfast Jack,154,450,28,10,1,29,840
+Jack In The Box,Breakfast Sandwich,Sausage Croissant,174,580,39,13,4,37,770
+Jack In The Box,Breakfast Sandwich,"Sausage, Egg & Cheese Biscuit",234,740,55,17,6,35,1430
+Jack In The Box,Breakfast Sandwich,Sirloin Steak & Egg Burrito,289,790,48,15,3.5,52,1320
+Jack In The Box,Breakfast Sandwich,Spicy Chicken Biscuit,169,460,22,5,7,44,1020
+Jack In The Box,Breakfast Sandwich,Supreme Croissant,151,450,25,9,3.5,36,860
+Jack In The Box,Breakfast Sandwich,Ultimate Breakfast Sandwich,249,570,27,10,1,49,1700
+Sonic,Breakfast Sandwich,"Bacon, Egg & Cheese Bistro",162,510,30,10,0.5,37,1060
+Sonic,Breakfast Sandwich,"Ham, Egg & Cheese Bistro",181,460,24,7,0.5,36,1320
+Sonic,Breakfast Sandwich,"Sausage, Egg & Cheese Bistro",189,590,40,13,1,37,1000
+Sonic,Breakfast Sandwich,"Sausage, Egg & Cheese Toaster",194,620,42,13,1,40,1380
+Sonic,Breakfast Sandwich,"Bacon, Egg & Cheese Toaster",167,530,32,10,0.5,40,1440
+Sonic,Breakfast Sandwich,"Ham, Egg & Cheese Toaster",186,490,26,8,0.5,40,1700
+Sonic,Breakfast Sandwich,"Sausage, Egg & Cheese Burrito",167,470,30,11,1,38,1140
+Sonic,Breakfast Sandwich,"Bacon, Egg & Cheese Burrito",157,450,26,10,0.5,38,1240
+Sonic,Breakfast Sandwich,"Ham, Egg & Cheese Burrito",183,440,23,9,0.5,37,1630
+Sonic,Breakfast Sandwich,SuperSonic Breakfast Burrito,216,550,34,12,1.5,47,1340
+Subway,Breakfast Sandwich,Cheese Sandwich,167,400,17,7,0,43,940
+Subway,Breakfast Sandwich,Chipotle Steak & Cheese Sandwich,259,580,31,11,0.5,48,1400
+Subway,Breakfast Sandwich,Double Bacon & Cheese Sandwich,185,500,25,11,0.5,44,1310
+Subway,Breakfast Sandwich,Honey Mustard Ham & Cheese Sandwich,216,460,19,8,0,51,1430
+Subway,Breakfast Sandwich,Western Sandwich (cheese),207,440,18,8,0,45,1320
+Subway,Breakfast Sandwich,Cheese Wrap,159,390,19,8,0,37,1050
+Subway,Breakfast Sandwich,Chipotle Steak & Cheese Wrap,251,570,33,11,0.5,41,1510
+Subway,Breakfast Sandwich,Double Bacon & Cheese Wrap,177,480,27,11,0,38,1420
+Subway,Breakfast Sandwich,Honey Mustard Ham & Cheese Wrap,208,450,21,8,0,45,1540
+Subway,Breakfast Sandwich,Western Wrap (cheese),199,420,20,8,0,39,1430
+Carl's Jr.,Breakfast Sandwich,Breakfast Burger,309,830,47,15,Unknown,65,1580
+Carl's Jr.,Breakfast Sandwich,Sourdough Breakfast Sandwich,193,460,21,9,Unknown,39,1050
+Carl's Jr.,Breakfast Sandwich,Sunrise Croissant,172,560,41,15,Unknown,27,970
+Carl's Jr.,Breakfast Sandwich,Bacon & Egg Burrito,208,570,33,11,Unknown,37,990
+Carl's Jr.,Breakfast Sandwich,Loaded Breakfast Burrito,328,820,51,16,Unknown,52,1530
+Carl's Jr.,Breakfast Sandwich,Steak & Egg Burrito,322,660,36,13,Unknown,44,1690
+Chick-Fil-A,Breakfast Sandwich,Chicken Burrito,191,410,16,7,0,42,940
+Chick-Fil-A,Breakfast Sandwich,Sausage Burrito,191,450,23,9,0,39,860
+Chick-Fil-A,Breakfast Sandwich,"Chicken, Egg & Cheese (sunflower multi-grain bagel)",215,500,20,7,0,49,1260
+Chick-Fil-A,Breakfast Sandwich,Hot Buttered Biscuit,79,270,12,3,3,38,660
+Chick-Fil-A,Breakfast Sandwich,Chicken Biscuit,145,420,19,4.5,3,44,1270
+Chick-Fil-A,Breakfast Sandwich,"Bacon, Egg & Cheese Biscuit",163,470,26,9,3,39,1190
+Chick-Fil-A,Breakfast Sandwich,Sausage & Egg Biscuit,198,570,37,11,3,39,1130
+Chick-Fil-A,Breakfast Sandwich,Biscuit (with gravy),192,330,15,4,4,43,950
+Arby's,Breakfast Sandwich,4 pc (Regular),137,426,28,13,1,38,1370
+Arby's,Breakfast Sandwich,8 pc (Large),273,849,56,26,2,75,2730
+Jack In The Box,Breakfast Sandwich,3 pc,71,240,12,5,2,21,420
+Jack In The Box,Breakfast Sandwich,6 pc,138,483,27,11,4,39,1018
+White Castle,Breakfast Sandwich,3 pc,79.2,250,14,6,2,22,750
+White Castle,Breakfast Sandwich,5 pc,132,420,23,10,3,37,1240
+White Castle,Breakfast Sandwich,10 pc,264,820,46,20,6,73,2490
+Sonic,Breakfast Sandwich,Unknown,140,440,22,9,0.5,40,1050
+Pizza Hut,"Breadstick, Cheesy Bread",Breadsticks,1 pc,150,6,1,0,20,230
+Pizza Hut,"Breadstick, Cheesy Bread",Cheese Breadsticks,1 pc,200,10,3,0,21,370
+Domino's Pizza,"Breadstick, Cheesy Bread",Breadsticks,1 pc,130,7,1.5,0,14,90
+Domino's Pizza,"Breadstick, Cheesy Bread",Cheesy Bread,1 pc,140,7,2.3,0,14,140
+Little Caesars,"Breadstick, Cheesy Bread",Crazy Bread,1 pc,100,3,0.5,0,15,150
+Little Caesars,"Breadstick, Cheesy Bread",Italian Cheese Bread,1 pc,130,7,2.5,0,13,230
+Little Caesars,"Breadstick, Cheesy Bread",Pepperoni Cheese Bread,1 pc,150,8,3,0,13,280
+Papa John's,"Breadstick, Cheesy Bread",Breadsticks,1 pc,140,2,0,0,26,260
+Papa John's,"Breadstick, Cheesy Bread",Cheesesticks,2 pc,370,16,4.5,0,42,830
+Pizza Hut,"Breadstick, Cheesy Bread","14"" Large Pan Pizza",146,390,19,7,0,38,800
+Domino's Pizza,"Breadstick, Cheesy Bread","14"" Classic Hand-Tossed",121,290,9,3.5,0,42,470
+Papa John's,"Breadstick, Cheesy Bread","14"" Original Crust Pizza",132,300,11,3.5,0,39,750
+Little Caesars,"Breadstick, Cheesy Bread","14"" Round HOT-N-READY Pizza",94,200,7,3.5,0,25,340
