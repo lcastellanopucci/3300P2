@@ -25,6 +25,16 @@
                 font-weight:Bold;
             }
         
+            .button{
+                font-family: 'Quicksand', sans-serif;
+                background-color: coral; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 16px;
+            }
 
     </style>      
     </head>
@@ -92,25 +102,25 @@
 				freq = d2;
 				us = d1;						
 				freq.forEach(function(d) {
-					d["Fast-food restaurants per 10,000 residents"] = +Number(d["Fast-food restaurants per 10,000 residents"]);
+					d["Fast-food restaurants per 10,000 residents"] = Math.max(0,Math.log(Number(d["Fast-food restaurants per 10,000 residents"])));
 					d["% of residents who are obese"] = +Number(d["% of residents who are obese"]);
 					d["Food Insercurity % (2010-12)"] = +Number(d["Food Insercurity % (2010-12)"]);
-					d["McDonald's"] = +Number(d["McDonald's"]);
-					d["Burger King"] = +Number(d["Burger King"]);
-					d["Wendy's"] = +Number(d["Wendy's"]);
-					d["Carl's"] = +Number(d["Carl's"]);
-					d["Chick-fil-A"] = +Number(d["Chick-fil-A"]);
-					d["Chipotle"] = +Number(d["Chipotle"]);
-					d["Dairy Queen"] = +Number(d["Dairy Queen"]);
-					d["FIPS"] = +Number(d["FIPS"]);			
-					d["Hardee's"] = +Number(d["Hardee's"]);
-					d["In-N-Out"] = +Number(d["In-N-Out"]);
-					d["Jack in the Box"] = +Number(d["Jack in the Box"]);
-					d["Papa John's"] = +Number(d["Papa John's"]);
-					d["Sonic"] = +Number(d["Sonic"]);
-					d["Subway"] = +Number(d["Subway"]);
-					d["Whataburger"] = +Number(d["Whataburger"]);
-					d["White Castle"] = +Number(d["White Castle"]);
+					d["McDonald's"] = Math.max(0,Math.log(Number(d["McDonald's"])));
+					d["Burger King"] = Math.max(0,Math.log(Number(d["Burger King"])));
+					d["Wendy's"] = Math.max(0,Math.log(Number(d["Wendy's"])));
+					d["Carl's"] = Math.max(0,Math.log(Number(d["Carl's"])));
+					d["Chick-fil-A"] = Math.max(0,Math.log(Number(d["Chick-fil-A"])));
+					d["Chipotle"] = Math.max(0,Math.log(Number(d["Chipotle"])));
+					d["Dairy Queen"] = Math.max(0,Math.log(Number(d["Dairy Queen"])));
+					d["FIPS"] = Number(d["FIPS"]);			
+					d["Hardee's"] = Math.max(0,Math.log(Number(d["Hardee's"])));
+					d["In-N-Out"] = Math.max(0,Math.log(Number(d["In-N-Out"])));
+					d["Jack in the Box"] = Math.max(0,Math.log(Number(d["Jack in the Box"])));
+					d["Papa John's"] = Math.max(0,Math.log(Number(d["Papa John's"])));
+					d["Sonic"] = Math.max(0,Math.log(Number(d["Sonic"])));
+					d["Subway"] = Math.max(0,Math.log(Number(d["Subway"])));
+					d["Whataburger"] = Math.max(0,Math.log(Number(d["Whataburger"])));
+					d["White Castle"] = Math.max(0,Math.log(Number(d["White Castle"])));
 				});             
 
 				var rest_Extent = d3.extent(freq, function(d) {
@@ -144,11 +154,12 @@
                     .attr("y2", "0%");
                 
                //title
-               usmap.append("text")             
+               var title = usmap.append("text")             
                 .attr("transform","translate(" + ((width + 50)/2) + " , 90)")
                 .style("font-family", "Quicksand")
                 .style("text-anchor", "middle")
-                .text("FastFood Density in US"); 
+                .text("FastFood Density in US")
+				.style("cursor", "pointer"); 
                 
                 linearGradient.append("stop") 
                     .attr("offset", "0%")   
@@ -263,15 +274,28 @@
                         }
                     }
                 }
-	
+			var ff = "Fast-food restaurants per 10,000 residents";
+			var txt1 = usmap.append("text")
+				.text(ff)
+				.attr("id", "t2")
+				 .attr("x", 280)
+                 .attr("y", 150)
+				 .style("font-size", "12pt")
+				 .style("font-family", "Quicksand")
+				 .style("text-anchor", "middle");
+				 
 			var mapp = usmap.selectAll('path').data(states.features).enter().append("path")
 				.attr("d", path).attr("stroke", "black").style("fill", function (state) {
                     if (restmap.get(state.id)){
 					var s = restmap.get(state.id);
 					return color_r(restmap.get(state.id)["Fast-food restaurants per 10,000 residents"]);  } 
 				});
+
+				
+				
                 
             scatterPlot(merged, us, mapp);
+
                 
                  //processing info from calories.csv
                 var type = d3.nest()
@@ -300,6 +324,18 @@
                 
    
               graphBarChart(T);  
+             /*d3.select("body").append("button")
+                .attr("class", "button")
+                .text("Clear Graph")
+                .style("align", "center")
+                .style("position", "absolute")
+                .style("top", "550")
+                .style("left", "60%")
+				.on("click", function(){click("Fast-food restaurants per 10,000 residents", states, mapp)});
+				
+                .on("click",function(){
+                    d3.selectAll(".smallBarChart").remove();
+            });*/			  
             
             });
 
@@ -447,11 +483,20 @@
                 .text("Items");
                 
                 //title
+<<<<<<< HEAD
                 barchart.append("text")             
                 .attr("transform","translate(" + ((width + 50)/2) + " , 15)")
                 .style("font-family", "Quicksand")
                 .style("text-anchor", "middle")
                 .text("Average calorie content per Fastfood item");
+=======
+				barchart.append("text")             
+                .attr("transform","translate(" + ((width + 50)/2) + " , 20)")
+                .style("font-family", "Quicksand")
+                .style("text-anchor", "middle")
+                .text("Average calorie content per item");
+				
+>>>>>>> origin/master
                 
                 var yScale = d3.scaleLinear()
                     .domain([0, 700])
@@ -497,6 +542,17 @@
                             .attr("fill", "#ff7f4d");
                     });
                 }
+
+             d3.select("body").append("button")
+                .attr("class", "button")
+                .text("Clear Graph")
+                .style("align", "center")
+                .style("position", "absolute")
+                .style("top", "550")
+                .style("left", "60%")				
+                .on("click",function(){
+                    d3.selectAll(".smallBarChart").remove();
+            });
     
             
             function moreInfo(info){
@@ -504,8 +560,11 @@
                 var dataToPlot = [];
                 
                 var max = 0;
+<<<<<<< HEAD
                 var subject;
                 var min = 0;
+=======
+>>>>>>> origin/master
                 
                 for(var i = 0; i < foodType.length; i++){
                     
@@ -517,20 +576,22 @@
                         
                         for (var x = 0; x < values.length; x++){
                             
-                            min = values[x].Calorie
-                            
                             if (max < values[x].Calorie){
                                 
                                 max = values[x].Calorie
                                 
                             }
                             
+<<<<<<< HEAD
                             if (min < values[x].Calorie){
                                 
                                 min = values[x].Calorie
                             }
                             
                                 var element = { fastFood : values[x].Fastfood,
+=======
+                                var info = { fastFood : values[x].Fastfood,
+>>>>>>> origin/master
                                         
                                             calorie: values[x].Calorie
 
@@ -544,6 +605,7 @@
                 
                 }
                 
+<<<<<<< HEAD
                 graphSmallBarChart(dataToPlot, max, min, subject );
             }
             
@@ -554,12 +616,25 @@
                 
                 var w = 500;
                 var h = 500;
+=======
+                graphSmallBarChart(dataToPlot, max);
+            }
+            
+               
+            function graphSmallBarChart(data, max){
+
+                var w = 200;
+                var h = 200;
+                console.log(max);
+>>>>>>> origin/master
                 
                 var smallBarChart = d3.select("body").append("svg")
                     .attr("class", "smallBarChart")
                     .attr("width", w + margin.left + margin.right)
-                    .attr("height", h + margin.bottom + margin.top)
+                    .attr("height", h + margin.bottom)
+                    .style("padding", "20")
                     .style("margin", "0");
+<<<<<<< HEAD
                 
                 var colors = ["#ffffff", "#ffdacc", "#ffb699", "#ffa07a", "#ff7f4d", "#ff5b1a", "#e64100", "#b33300", "#802400", "#4d1600"];
                 
@@ -567,8 +642,11 @@
                     .domain([0, max])
                     .range(colors);
                 
+=======
+
+>>>>>>> origin/master
                 var xScale = d3.scaleBand()
-                    .range([0, w])
+                    .range([0, 200])
                     .padding(0.5);
                 
                 xScale.domain(data.map(function(d) { return d.fastFood; }));
@@ -596,7 +674,7 @@
                 
                 var yScale = d3.scaleLinear()
                     .domain([0, max])
-                    .range([h, 0]);
+                    .range([200, 0]);
                 
                 var axisC = d3.axisLeft(yScale);
                 
@@ -617,6 +695,7 @@
                     .attr("width", xScale.bandwidth())
                     .attr("y", function(d) { return yScale(d.calorie); })
                     .attr("height", function(d) { return h - yScale(d.calorie); })
+<<<<<<< HEAD
 //                    .attr("fill", function(d){
 //                        if (d.calorie == max){
 //                            return ("#ff3b00")
@@ -630,13 +709,31 @@
 //                            
 //                    });
                 .attr("fill", "#ff7f4d");
+=======
+                    .attr("fill", function(d){
+                        if (d.calorie == max){
+                            return ("#e60000");
+                        } 
+                        else{
+                            return ("#ffa07a");
+                        }
+                            
+                    });
+>>>>>>> origin/master
                 
             }
                 
             function click(n, states, mapp) {
-                
                 var stat = "";
                 
+				//var text = usmap.select("text");
+
+				usmap.select("#t2").text(n)
+				 .attr("x", 280)
+                 .attr("y", 150)
+				 .style("font-size", "12pt")
+				 .style("font-family", "Quicksand")
+				 .style("text-anchor", "middle");
                 var restmap = d3.map(freq, function (d) { return d["FIPS"];} );
                 
                 var ext = d3.extent(freq, function(d) {
