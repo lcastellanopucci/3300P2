@@ -24,6 +24,7 @@
                 font-size:30;
                 font-weight:Bold;
             }
+
     </style>      
     </head>
     <body>
@@ -50,10 +51,20 @@
             var usmap = d3.select("body").append("svg")
 				.attr("width", 600)
 				.attr("height", 700);
+           
+            var barchart = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom);
+            
+            var smallBarChart = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom);
 			
             var P = [];
             var C = [];
             var I = [];
+            var T = [];
+            var foodType = [];
             
             var merged = [];
             
@@ -77,7 +88,8 @@
                 .defer(d3.csv, "FastFood.csv")
 				.defer(d3.json, "us.json")
 				.defer(d3.csv, "OB_AND_FF_FREQ.csv")
-                .await(function (err, price, calories, income, d1, d2) {
+                .defer(d3.csv, "caloriesType.csv")
+                .await(function (err, price, calories, income, d1, d2, caloriesType) {
 				
 				if(err) { console.log(err); }
 
@@ -118,7 +130,7 @@
 
 				var color_r = d3.scaleQuantize()
 					.domain(rest_Extent)
-					.range(["#ffffff", "#ffdacc", "##ffb699", "#ffa07a", "#ff7f4d", "#ff5b1a", "#e64100", "#b33300", "#802400", "#4d1600"]);
+					.range(["#ffffff", "#ffdacc", "#ffb699", "#ffa07a", "#ff7f4d", "#ff5b1a", "#e64100", "#b33300", "#802400", "#4d1600"]);
 				
 				states = topojson.feature(us, us.objects.states);
 		
@@ -253,13 +265,43 @@
 	
 			var mapp = usmap.selectAll('path').data(states.features).enter().append("path")
 				.attr("d", path).attr("stroke", "black").style("fill", function (state) {
-				if (restmap.get(state.id)){
+                    if (restmap.get(state.id)){
 					var s = restmap.get(state.id);
 					return color_r(restmap.get(state.id)["Fast-food restaurants per 10,000 residents"]);  } 
 				});
                 
-  
-                scatterPlot(merged, us, mapp);
+            scatterPlot(merged, us, mapp);
+               
+            console.log(caloriesType);
+                
+                 //processing info from calories.csv
+                var type = d3.nest()
+                    .key(function(d) { return d.Food;})
+                    .rollup(function(calories) {
+                    return {
+                            "averageCalories" : d3.mean(calories, function(d) {return(d.Calorie)}) // Return the average score 
+                            }
+                    })
+                    .entries(caloriesType);
+                
+                for(var i = 0; i < type.length; i++){
+                
+                    var n = Object.values(type[i].value)
+                    var x = Number(n);
+
+                    var calorieInfo = { food : type[i].key,
+                                        kcal: x
+                                        }
+                    T.push(calorieInfo);
+                    }
+                
+                foodType = d3.nest()
+                    .key(function(d) { return d.Food;})
+                    .entries(caloriesType);
+                
+   
+              graphBarChart(T);  
+            
             });
 
             var y = d3.scaleLinear()
@@ -335,7 +377,15 @@
 //                .attr("stroke", "pink")
 //                .style("opacity", opacity = "0.8")
 //				.on("click", function (){click(d3.select(this).text())});
- 	
+            
+//            images.append("image")
+//                .attr("xlink:href", merged.logo)
+//                .attr("x", -8)
+//                .attr("y", -8)
+//                .attr("width", 16)
+//                .attr("height", 16);
+
+			
             var images = svg.append("g").selectAll('points')
                 .data(merged)
                 .enter()
@@ -350,9 +400,152 @@
 				      click(d.fastfood, states, mapp);});
             
         }
+            
+            
+            function graphBarChart(T){
+                
+                 var xScale = d3.scaleBand()
+                    .range([0, width])
+                    .padding(0.5);
+                
+                xScale.domain(T.map(function(d) { return d.food; }));
+     
+                var typeAxis = d3.axisBottom()
+                    .scale(xScale);
+            
+                // x-axis
+                barchart.append("g")
+                  .attr("class", "Xaxis")
+                  .attr("transform", "translate("+margin.left+", 500 )")
+                  .call(typeAxis)
+                    .selectAll("text")
+                    .style("text-anchor", "end")
+                    .attr("dx", "-.8em")
+                    .attr("dy", "-.55em")
+                    .attr("transform", "rotate(-90)" );
+                
+                var yScale = d3.scaleLinear()
+                    .domain([0, 700])
+                    .range([500, 0]);
+                
+                var axisCalories = d3.axisLeft(yScale);
+                
+                // y-axis
+                barchart.append("g")
+                  .attr("class", "Yaxis")
+                  .attr("transform", "translate("+margin.left+", 0)")
+                  .call(axisCalories);
+                
+                var g = barchart.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+               g.selectAll(".bar")
+                    .data(T)
+                    .enter()
+                    .append("rect")
+                    .attr("class", "bar")
+                    .attr("fill", "#ff7f4d")
+                    .attr("x", function(d) { return xScale(d.food); })
+                    .attr("width", xScale.bandwidth())
+                    .attr("y", function(d) { return y(d.kcal); })
+                    .attr("height", function(d) { return height - margin.top - y(d.kcal); })
+                   .on('click', function(d){
+                     
+                        moreInfo(d.food)}
+                      )
+                    .on('mouseover', function() {
+                        d3.select(this)
+            	           .attr("fill", "orange");
+                    })
+                   .on("mouseout", function() {
+                        d3.select(this)
+                            .attr("fill", "#ff7f4d");
+                    });
+                }
     
+            
+            function moreInfo(info){
+                
+                var dataToPlot = [];
+                
+                for(var i = 0; i < foodType.length; i++){
+                    
+                    if (foodType[i].key == info){
+                        
+                       values = foodType[i].values;
+                        
+                        for (var x = 0; x < values.length; x++){
+                            
+                            var info = { fastFood : values[x].Fastfood,
+                                        
+                                        calorie: values[x].Calorie
+                            
+                                        }
+                            
+                            dataToPlot.push(info);
 
-	
+                        }
+            
+                    }
+                
+                }
+                
+                graphSmallBarChart(dataToPlot);
+            }
+                
+                var counter = 0;
+                
+            function graphSmallBarChart(data){
+                
+                counter++;
+                
+                var xScale = d3.scaleBand()
+                    .range([0, 200])
+                    .padding(0.5);
+                
+                xScale.domain(data.map(function(d) { return d.fastFood; }));
+     
+                var fastfoodAxis = d3.axisBottom()
+                    .scale(xScale);
+            
+                // x-axis
+                smallBarChart.append("g")
+                  .attr("class", "Xaxis")
+                  .attr("transform", "translate("+margin.left+", 200 )")
+                  .call(fastfoodAxis)
+                    .selectAll("text")
+                    .style("text-anchor", "end")
+                    .attr("dx", "-.8em")
+                    .attr("dy", "-.55em")
+                    .attr("transform", "rotate(-90)" );
+                
+                var yScale = d3.scaleLinear()
+                    .domain([0, 700])
+                    .range([200, 0]);
+                
+                var axisC = d3.axisLeft(yScale);
+                
+                // y-axis
+                smallBarChart.append("g")
+                  .attr("class", "yAxis")
+                  .attr("transform", "translate("+margin.left+", 0)")
+                  .call(axisC);
+                
+                var g = smallBarChart.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+               g.selectAll(".bar")
+                    .data(data)
+                    .enter()
+                    .append("rect")
+                    .attr("class", "bar")
+                    .attr("fill", "#ffb699")
+                    .attr("x", function(d) { return xScale(d.fastFood); })
+                    .attr("width", xScale.bandwidth())
+                    .attr("y", function(d) { return yScale(d.calorie); })
+                    .attr("height", function(d) { return 200 - margin.top - yScale(d.calorie); })
+            
+            }
+                
+                
             function click(n, states, mapp) {
                 
                 var stat = "";
@@ -365,7 +558,7 @@
 		
                 var color_r = d3.scaleQuantize()
                     .domain(ext)
-                    .range(["#ffffff", "#ffdacc", "##ffb699", "#ffa07a", "#ff7f4d", "#ff5b1a", "#e64100", "#b33300", "#802400", "#4d1600"]);
+                    .range(["#ffffff", "#ffdacc", "#ffb699", "#ffa07a", "#ff7f4d", "#ff5b1a", "#e64100", "#b33300", "#802400", "#4d1600"]);
                 
                 mapp.style("fill", function (state) {
 				console.log(color_r);	
