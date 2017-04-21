@@ -28,8 +28,6 @@
     </style>      
     </head>
     <body>
-        
-
         <script>
 
 			var projection =  d3.geoAlbersUsa()
@@ -412,7 +410,7 @@
                 .attr("height", 40)
 				.on("click", function (d){
 				      var states = topojson.feature(us, us.objects.states);
-				      click(d.fastfood, states, mapp, measure);})
+				      click(d.fastfood, states, mapp);})
                 .on('mouseover', function() {
                         d3.select(this)
             	           .attr("opacity", "0.5");
@@ -544,8 +542,6 @@
                 graphSmallBarChart(dataToPlot, max);
             }
             
-               
-
             function graphSmallBarChart(data, max, min){
                 
                 d3.select(".smallBarChart").remove();
