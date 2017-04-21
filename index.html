@@ -54,19 +54,6 @@
             var barchart = d3.select("body").append("svg")
                     .attr("width", width + margin.left + margin.right)
                     .attr("height", height + margin.top + margin.bottom);
-            
-                            
-            var smallBarChart = d3.select("body").append("svg")
-                    .attr("class", "smallBarChart")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.bottom)
-                    .style("float", "right")
-                    .style("padding", "20")
-                    .style("margin", "0");
-
-			var bill = d3.select("body").append("svg")
-				.attr("width", 700)
-				.attr("height", 397);
 				
             var P = [];
             var C = [];
@@ -425,13 +412,8 @@
                 .attr("height", 40)
 				.on("click", function (d){
 				      var states = topojson.feature(us, us.objects.states);
-<<<<<<< HEAD
 				      click(d.fastfood, states, mapp, measure);})
                 .on('mouseover', function() {
-=======
-				      click(d.fastfood, states, mapp);});
-                    /*.on('mouseover', function() {
->>>>>>> origin/master
                         d3.select(this)
             	           .attr("opacity", "0.5");
                     })
