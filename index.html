@@ -37,7 +37,7 @@
                 .translate([550 / 2, 700 / 2]);
 
 			var path = d3.geoPath().projection(projection);	
-			var states, restmap, us, freq, inc;
+			var states, restmap, us, freq;
 			
             var height = 500;
             var width = 500;
@@ -94,7 +94,6 @@
 
 				freq = d2;
 				us = d1;	
-				inc = income;
 				freq.forEach(function(d) {
 					d["Fast-food restaurants per 10,000 residents"] = Math.max(0,Math.log(Number(d["Fast-food restaurants per 10,000 residents"])));
 					d["% of residents who are obese"] = +Number(d["% of residents who are obese"]);
@@ -192,7 +191,6 @@
                         .key(function(d) { return d.State;})
                         .entries(d2);
                 
-                console.log(stateData);
                 
 	
 			   //processing information about price   
@@ -302,32 +300,10 @@
 					var s = restmap.get(state.id);
 					return color_r(restmap.get(state.id)["Fast-food restaurants per 10,000 residents"]);  } 
 				});
-
-			var dollar = bill.append("image")
-				.attr("x", "0")
-				.attr("y", "100")			
-				.attr("xlink:href", "5bill.jpg")
-				.attr("height", "297")
-				.attr("width", "700");	
-				
-			var measure = bill.append("rect")
-				.attr("x", "0")
-				.attr("y", "100")
-				.attr("height", "297")
-				.attr("width", "700")
-				.style("fill", "green")
-				.style("opacity", "0.5");		
-
-			bill.append("text")
-				.attr("id", "income")
-				.attr("y", 50)
-				.attr("x", 350)
-                .style("font-family", "Quicksand")
-                .style("text-anchor", "middle")
-                .text("Yearly Income per unit (out of $5 million)");				
+			
 				
                 
-            scatterPlot(merged, us, mapp, measure);
+            scatterPlot(merged, us, mapp);
 
                 
                  //processing info from calories.csv
@@ -409,7 +385,7 @@
                 .text("Calories");    
                 
                         
-        function scatterPlot(merged, us, mapp, measure){
+        function scatterPlot(merged, us, mapp){
 
             var averageCaloriesGirl = svg.append("line")
                     .attr("x1", margin.left)                       
@@ -461,7 +437,7 @@
                 .attr("height", 40)
 				.on("click", function (d){
 				      var states = topojson.feature(us, us.objects.states);
-				      click(d.fastfood, states, mapp, measure);});
+				      click(d.fastfood, states, mapp);});
                     /*.on('mouseover', function() {
                         d3.select(this)
             	           .attr("opacity", "0.5");
@@ -668,7 +644,7 @@
                 
             }
                 
-            function click(n, states, mapp, measure) {
+            function click(n, states, mapp) {
                 var stat = "";
                 
 				var xSc = d3.scaleLinear()
@@ -690,23 +666,7 @@
 				 .style("font-family", "Quicksand")
 				 .style("text-anchor", "middle");
 				 
-		var dollar_w = 700;
-		inc.forEach(function(d){
-			if(d["fastfood"] == n){
-				dollar_w = 700*Number(d["2014 U.S. AVERAGE SALES PER UNIT (THOUSANDS)"])/5000;	
-				console.log(dollar_w);
-				
-				bill.select("#income")
-				.attr("y", 50)
-				.attr("x", 350)
-                .style("font-family", "Quicksand")
-                .style("text-anchor", "middle")
-                .text(n + " Yearly Income per unit : $" + (Number(d["2014 U.S. AVERAGE SALES PER UNIT (THOUSANDS)"])*1000));
-					
-			}
-		});
-		
-		measure.attr("width", dollar_w);				 
+			 
 				 
 				 
                 var restmap = d3.map(freq, function (d) { return d["FIPS"];} );
