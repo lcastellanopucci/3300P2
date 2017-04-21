@@ -59,6 +59,7 @@
             var T = [];
             var foodType = [];
             var stateData = [];
+            var obeseState = [];
             var merged = [];
             
             var imageRef = [{ name: "AppleBees", logo: "http://www.horadecomer.com/uploads/images/logos/logo-applebees.png" },
@@ -82,7 +83,8 @@
 				.defer(d3.json, "us.json")
 				.defer(d3.csv, "OB_AND_FF_FREQ.csv")
                 .defer(d3.csv, "caloriesType.csv")
-                .await(function (err, price, calories, income, d1, d2, caloriesType) {
+                .defer(d3.csv, "stateObese.csv")
+                .await(function (err, price, calories, income, d1, d2, caloriesType, obese) {
 				
 				if(err) { console.log(err); }
 
@@ -179,14 +181,9 @@
 					.attr("class", "axis")
 					.attr("transform", "translate(0," + (575) + ")")
 					.call(xline);
+                
+                stateData = obese;
 
-                
-                stateData = d3.nest()
-                        .key(function(d) { return d.State;})
-                        .entries(d2);
-                
-                
-	
 			   //processing information about price   
                     priceData = d3.nest()
                         .key(function(d) { return d.FastFood;})
@@ -599,15 +596,7 @@
                     .attr("width", xScale.bandwidth())
                     .attr("y", function(d) { return yScale(d.calorie); })
                     .attr("height", function(d) { return h - yScale(d.calorie); })
-                    .attr("fill", function(d){
-                        if (d.calorie == max){
-                            return ("#e60000");
-                        } 
-                        else{
-                            return ("#ffa07a");
-                        }
-                            
-                    });
+                    .attr("fill", "#ffa07a");
                 
             }
                 
