@@ -92,7 +92,7 @@
 				us = d1;	
 				freq.forEach(function(d) {
 					d["Fast-food restaurants per 10,000 residents"] = Math.max(0,Math.log(Number(d["Fast-food restaurants per 10,000 residents"])));
-					d["% of residents who are obese"] = +Number(d["% of residents who are obese"]);
+					d["percentResidentsObese"] = +Number(d["percentResidentsObese"]);
 					d["Food Insercurity % (2010-12)"] = +Number(d["Food Insercurity % (2010-12)"]);
 					d["McDonald's"] = Math.max(0,Math.log(Number(d["McDonald's"])));
 					d["Burger King"] = Math.max(0,Math.log(Number(d["Burger King"])));
@@ -288,9 +288,16 @@
 			var mapp = usmap.selectAll('path').data(states.features).enter().append("path")
 				.attr("d", path).attr("stroke", "black").style("fill", function (state) {
                     if (restmap.get(state.id)){
-					var s = restmap.get(state.id);
+						var s = restmap.get(state.id);
 					return color_r(restmap.get(state.id)["Fast-food restaurants per 10,000 residents"]);  } 
-				});
+				}).on("click", function(state){ 
+				
+				console.log(   restmap.get(state.id)["percentResidentsObese"]       );
+				console.log(   restmap.get(state.id)["Food Insercurity % (2010-12)"]       );
+				
+				})
+				
+				;
 			
 				
                 
@@ -394,8 +401,7 @@
                     .attr("y2", y(833))
                     .attr("stroke-width", 1.5)
                     .attr("stroke", "blue");
-                
-			
+            
             var images = svg.append("g").selectAll('points')
                 .data(merged)
                 .enter()
@@ -409,14 +415,14 @@
 				      var states = topojson.feature(us, us.objects.states);
 				      click(d.fastfood, states, mapp);})
                 .on('mouseover', function() {
-                        d3.select(this)
-            	           .attr("opacity", "0.5");
-                    })
+                    d3.select(this)
+            	    .attr("opacity", "0.5");
+                })
                 .on("mouseout", function() {
                     d3.select(this)
                     .attr("opacity", "1");
-                })
-            };
+                });
+        }
             
             
             function graphBarChart(T){
@@ -490,9 +496,12 @@
                     .attr("width", xScale.bandwidth())
                     .attr("y", function(d) { return yScale(d.kcal); })
                     .attr("height", function(d) { return height - margin.top - yScale(d.kcal); })
-                    .on('click', function(d){ moreInfo(d.food)})
-                    .on('mouseover', function() { 
-                            d3.select(this)
+                   .on('click', function(d){
+                     
+                        moreInfo(d.food)}
+                      )
+                    .on('mouseover', function() {
+                        d3.select(this)
             	           .attr("fill", "orange");
                     })
                    .on("mouseout", function() {
@@ -554,8 +563,8 @@
                     .style("margin", "0");
 
                 var xScale = d3.scaleBand()
-                    .range([0, w])
-                    .padding(0.5);
+                    .rangeRound([0, w], 0.1)
+                    .paddingInner(0.5);
                 
                 xScale.domain(data.map(function(d) { return d.fastFood; }));
      
@@ -574,8 +583,9 @@
                     .attr("transform", "rotate(-90)" );
                 
                 var yScale = d3.scaleLinear()
-                    .domain([0, max])
                     .range([h, 0]);
+                
+                yScale.domain([0, d3.max(data, function(d) { return d.calorie; })]);
                 
                 var axisC = d3.axisLeft(yScale);
                 
@@ -586,10 +596,9 @@
                   .call(axisC);
                 
                 var g = smallBarChart.append("g").attr("transform", "translate(" + margin.left + ",0)");
+                var bar = g.selectAll(".bar").data(data);
                 
-                g.selectAll(".bar")
-                    .data(data)
-                    .enter()
+                bar.enter()
                     .append("rect")
                     .attr("class", "bar")
                     .attr("x", function(d) { return xScale(d.fastFood); })
@@ -597,7 +606,7 @@
                     .attr("y", function(d) { return yScale(d.calorie); })
                     .attr("height", function(d) { return h - yScale(d.calorie); })
                     .attr("fill", "#ffa07a");
-                
+              
             }
                 
             function click(n, states, mapp) {
