@@ -54,7 +54,16 @@
             var barchart = d3.select("body").append("svg")
                     .attr("width", width + margin.left + margin.right)
                     .attr("height", height + margin.top + margin.bottom);
- 
+            
+                            
+            var smallBarChart = d3.select("body").append("svg")
+                    .attr("class", "smallBarChart")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.bottom)
+                    .style("float", "right")
+                    .style("padding", "20")
+                    .style("margin", "0");
+
 			var bill = d3.select("body").append("svg")
 				.attr("width", 700)
 				.attr("height", 397);
@@ -428,27 +437,6 @@
                     .attr("stroke-width", 1.5)
                     .attr("stroke", "blue");
                 
-//            var images = svg.append("g").selectAll('points')
-//                .data(merged)
-//				.enter()
-//				.append("circle")
-//                .attr("class", "dot")
-//                .attr("r", function(d){ return (d.income / 35447)*100})
-//                .attr("cx", function(d){ return x(d.avgPrice) })
-//                .attr("cy", function(d){ return y(d.calories) })
-//                .style("fill", "url(d.logo)")
-//                .attr("stroke-width", 1.5)
-//                .attr("stroke", "pink")
-//                .style("opacity", opacity = "0.8")
-//				.on("click", function (){click(d3.select(this).text())});
-            
-//            images.append("image")
-//                .attr("xlink:href", merged.logo)
-//                .attr("x", -8)
-//                .attr("y", -8)
-//                .attr("width", 16)
-//                .attr("height", 16);
-
 			
             var images = svg.append("g").selectAll('points')
                 .data(merged)
@@ -461,17 +449,16 @@
                 .attr("height", 40)
 				.on("click", function (d){
 				      var states = topojson.feature(us, us.objects.states);
-				      click(d.fastfood, states, mapp, measure);});
-                    /*.on('mouseover', function() {
+				      click(d.fastfood, states, mapp, measure);})
+                .on('mouseover', function() {
                         d3.select(this)
             	           .attr("opacity", "0.5");
                     })
-                   .on("mouseout", function() {
-                        d3.select(this)
-                            .attr("opacity", "1");
-                    */
-            
-        }
+                .on("mouseout", function() {
+                    d3.select(this)
+                    .attr("opacity", "1");
+                })
+            };
             
             
             function graphBarChart(T){
@@ -545,12 +532,9 @@
                     .attr("width", xScale.bandwidth())
                     .attr("y", function(d) { return yScale(d.kcal); })
                     .attr("height", function(d) { return height - margin.top - yScale(d.kcal); })
-                   .on('click', function(d){
-                     
-                        moreInfo(d.food)}
-                      )
-                    .on('mouseover', function() {
-                        d3.select(this)
+                    .on('click', function(d){ moreInfo(d.food)})
+                    .on('mouseover', function() { 
+                            d3.select(this)
             	           .attr("fill", "orange");
                     })
                    .on("mouseout", function() {
@@ -614,8 +598,8 @@
                     .style("margin", "0");
 
                 var xScale = d3.scaleBand()
-                    .rangeRound([0, w], 0.1)
-                    .paddingInner(0.5);
+                    .range([0, w])
+                    .padding(0.5);
                 
                 xScale.domain(data.map(function(d) { return d.fastFood; }));
      
@@ -634,9 +618,8 @@
                     .attr("transform", "rotate(-90)" );
                 
                 var yScale = d3.scaleLinear()
+                    .domain([0, max])
                     .range([h, 0]);
-                
-                yScale.domain([0, d3.max(data, function(d) { return d.calorie; })]);
                 
                 var axisC = d3.axisLeft(yScale);
                 
@@ -647,9 +630,10 @@
                   .call(axisC);
                 
                 var g = smallBarChart.append("g").attr("transform", "translate(" + margin.left + ",0)");
-                var bar = g.selectAll(".bar").data(data);
                 
-                bar.enter()
+                g.selectAll(".bar")
+                    .data(data)
+                    .enter()
                     .append("rect")
                     .attr("class", "bar")
                     .attr("x", function(d) { return xScale(d.fastFood); })
@@ -657,14 +641,14 @@
                     .attr("y", function(d) { return yScale(d.calorie); })
                     .attr("height", function(d) { return h - yScale(d.calorie); })
                     .attr("fill", function(d){
-//                        if (d.calorie == max){
-//                                return ("#e60000");
-//                            } 
-//                            else{
-                                return ("#ffa07a");
-                            }
+                        if (d.calorie == max){
+                            return ("#e60000");
+                        } 
+                        else{
+                            return ("#ffa07a");
+                        }
                             
-                        );
+                    });
                 
             }
                 
